@@ -1,7 +1,7 @@
 import express from "express"
-import videoRautes from "./videos"
+import videoRoutes from "./routeVideos"
 const router = express.Router()
 
-router.use('/api/videos', videoRautes)
+router.use('/api/videos', videoRoutes)
 
 export default router
