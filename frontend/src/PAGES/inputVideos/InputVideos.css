@@ -1,0 +1,135 @@
+.containerAllVideosPage {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background: #a0a0a0;
+
+
+}
+
+.allVideosWrapper {
+    position: relative;
+    width: 80%;
+    margin: auto;
+
+}
+
+.allVideos {
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    box-shadow: 0 0 5px black;
+    /*background-color: rgba(0, 0, 0, 0.1);*/
+    border-radius: 5px;
+    overflow: auto;
+    height: fit-content;
+    padding: 30px;
+    margin: 20px auto 0 auto;
+
+}
+.allVideos::-webkit-scrollbar{
+    display: none;
+}
+
+
+.backArrowDiv {
+    position: absolute;
+    left: 7.5%;
+    bottom: 2%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    border-radius: 15px;
+    box-shadow: 0 0 5px 2px #333333;
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+.backArrowDiv :hover{
+    box-shadow: 0 0 5px 2px #212121;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+.backArrowDiv svg{
+    font-size: 80px;
+}
+.backArrowDiv svg path{
+    fill: crimson;
+}
+.goToVideosDiv{
+    position: absolute;
+    bottom: 25px;
+    left: 150px;
+    width: 100px;
+}
+
+.goToVideos{
+    width: 80px
+}
+.onVideo {
+    width: inherit;
+    filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.9));
+    transition: 300ms;
+
+}
+
+.goFolderImage{
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+}
+
+.goFolderImage img{
+    width: 120px;
+
+}
+
+
+.onVideoDiv {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+}
+
+
+.onCollection{
+    position: absolute;
+    top: -85px;
+    right: 5px;
+    width: 120px;
+}
+
+.bottomDivSlidesVideo{
+    height: 83px;
+    width: 90%;
+    background-color: #212121;
+    position: absolute;
+    z-index: 10000;
+    left: 50%;
+    top: 77%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    color: crimson;
+    border-radius: 5px;
+    justify-content: space-around;
+    align-items: center;
+    letter-spacing: 0.05em;
+    font-family: "Helvetica Neue";
+    font-size: 50px;
+}
+
+.dragPicDiv{
+    margin: 0 -300px;
+}
+.dragPicDiv img{
+    width: 70px;
+}

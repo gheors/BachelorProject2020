@@ -1,0 +1,80 @@
+
+.FolderCard {
+    width: 222px !important;
+    height: 70px !important;
+    /*border: 1px solid rgba(220, 20, 60, 0.4);*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #212121;
+    margin: 7px auto;
+    transition: ease-out 200ms;
+    border-radius: 3px;
+
+}
+
+.FolderCard:hover{
+    background-color: #333333;
+    transition: ease-out 200ms;
+    box-shadow: 0 0 7px black;
+
+}
+
+.imageCover{
+    width:100px;
+    height: 60px;
+    border-radius: 3px 0 0 0;
+
+
+
+
+}
+.titleFolderCard{
+    position: relative;
+    color: #c8c8c8;
+    background-color: crimson;
+    font-size: 12px;
+    width: 100px;
+    height: fit-content;
+    z-index: 2;
+    bottom: 8px;
+    border-radius: 0 0 0 3px;
+
+}
+
+.titleFolderCard span{
+    margin-left: 4px;
+}
+
+
+.folderCardIconsDiv{
+    display: flex;
+    flex-direction: row;
+    padding-right: 5px;
+}
+
+.folderCardIcon,.folderCardIconDelete{
+    margin: auto;
+    padding: 5px;
+}
+
+.folderCardIcon svg,.folderCardIconDelete svg{
+    font-size: 20px;
+}
+.folderCardIcon svg path{
+    fill: #ccff00;
+    font-size: 20px;
+    opacity: 0.5;
+
+}
+
+.folderCardIcon svg path:hover,.folderCardIconDelete svg path:hover{
+    opacity: 1;
+
+}
+
+.folderCardIconDelete svg path{
+    fill: red;
+    opacity: 0.5;
+}
+

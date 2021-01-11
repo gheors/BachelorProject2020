@@ -1,0 +1,223 @@
+
+
+.currentTagBuildingContainerBottomFather{
+    width: fit-content;
+    background-color: #212121;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    margin: 4px 0 5px 4px;
+}
+.currentTagBuildingContainerBottom{
+    width: 654px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 230px;
+    border-radius: 5px;
+    overflow: auto;
+}
+.searchBarDiv{
+    display: flex;
+    justify-content: center;
+}
+.inputSearch{
+    width: 98%;
+    height: 35px;
+    border-radius: 50px;
+    border: none;
+    margin-top:10px;
+    background-color: #252525;
+    font-family: "Helvetica Neue";
+    color: #a9a9a9;
+    outline: none;
+    box-shadow:  0 0 2px  #a9a9a9;
+
+}
+
+.existingCategoryDiv{
+    box-shadow:  0 2px 4px 2px black;
+    background-color: #1c1c1c;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 10px 0 10px;
+    border-radius: 5px;
+    height: 200px;
+}
+
+.accordionNewWrapper{
+    /*padding-top: 5px;*/
+    padding: 5px 0;
+    margin-left: 3px;
+    width: 657px;
+    height: fit-content;
+    background-color: #212121;
+    /*box-shadow: inset 0 0 4px 2px black;*/
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+
+.allCategoriesCurrentCrop{
+    color: #a9a9a9;
+    display: flex;
+    margin: 5px 10px 5px 10px;
+}
+
+
+.leftCategoriesWrapper{
+    width: fit-content;
+    height: 200px;
+
+}
+
+/* add new category*/
+.bodyCategoryCurrentCrop{
+    width: 240px;
+    height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    color: #a9a9a9;
+    font-family: "Helvetica Neue";
+    font-style: italic;
+    letter-spacing: 0.05em;
+}
+
+.displayFlex{
+    display: flex;
+    width: 210px;
+    justify-content: space-between;
+}
+
+.addNewCategoryRoot{
+    min-width: 140px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: 3px 35px 3px 40px;
+    font-style: normal;
+    /*box-shadow: 0 0 1px 1px #1e9dff;*/
+    color:#ffc109;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    align-items: center;
+    height: 25px;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px 1px black;
+
+}
+
+.wrapperInputCategory{
+    width: fit-content;
+    align-items: flex-start;
+    display: flex;
+    margin: 3px 10px;
+    box-shadow: 0 2px 3px 1px black;
+border-radius: 3px;
+
+}
+
+.wrapperLabelCategory{
+    font-family: "Helvetica Neue";
+    font-weight:400;
+    font-size: 12px;
+    display: flex;
+    font-style: normal;
+    align-items: flex-end;
+    margin-left: 10px;
+    position: relative;
+    bottom: 2px;
+}
+
+
+.categoryNameCurrentCrop{
+    width: fit-content;
+    color: #ffc109;
+    /*border: 1px solid white;*/
+    box-shadow: inset 0 0 4px 1px black;
+    padding: 0 7px 1px 7px;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 3px 0 0 3px;
+    position: relative;
+    font-weight: 400;
+    font-family: "Helvetica Neue";
+    background-color: #333333;
+}
+
+.addTagInput{
+  border: none;
+    height: 25px;
+    width: 100px;
+    border-radius: 3px;
+    /*margin-bottom: 5px;*/
+    font-family: "Helvetica Neue";
+    background-color: #1c1c1c;
+    font-size: 12px;
+    outline: none;
+    font-weight: 400;
+}
+
+.adjustButtonAdd{
+    height: fit-content!important;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,0.7)!important;
+
+}
+.addTagInput:focus{
+    color: #a9a9a9;
+    font-family: "Helvetica Neue";
+}
+
+.addTagInput::placeholder{
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.08em;
+
+}
+
+.addTagButton {
+    width: 25px;
+    height: 25px;
+    border: none;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    font-size: 13px;
+    outline: none!important;
+    border-radius:50px;
+    box-shadow: 0 2px 4px 2px black;
+    background-color: #1c1c1c;
+    margin: 0 10px 0 10px;
+}
+
+.addTagButton:hover{
+    box-shadow: 0 2px 3px 1px #ccff00;
+
+}
+.addTagButton svg{
+    position: relative;
+    bottom: 1px;
+}
+
+.WrapperTagAdjustCategories{
+    box-shadow: 0 0 1px 1px #a9a9a9!important;
+}
+.WrapperTagAdjustCategories div{
+    color: #a9a9a9;
+    font-weight: 400;
+}
+.WrapperTagAdjustCategories svg path{
+    fill: #a9a9a9;
+}
+.WrapperTagAdjustCategories:hover{
+    box-shadow: 0 0 1px 1px #ccff00!important;
+}
+.WrapperTagAdjustCategories div:hover{
+    color: #ccff00;
+}

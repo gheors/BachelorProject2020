@@ -1,0 +1,149 @@
+.sideBarContainer {
+    z-index: 999;
+    position: relative;
+    top: 3px;
+}
+
+
+.nav-menu2 {
+    background-color: #212121;
+    width: 270px;
+    height: 740px;
+    display: flex;
+    justify-content: center;
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: 1px 0 4px black;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+.nav-menu-items {
+    width: 100%;
+}
+
+.navbar-toggle {
+    letter-spacing: 0.1em;
+    width: 200px;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: crimson;
+    font-size: 25px;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+}
+
+.iconWrapper {
+    font-size: 35px;
+    position: relative;
+    bottom: 3px;
+}
+
+.iconWrapper svg path {
+    fill: crimson;
+}
+
+.sidebarAddCollection {
+    width: 40px;
+    margin-left: 10px;
+}
+
+.UploadElementsDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    width: 83%;
+}
+
+.uploadImageDiv {
+    font-family: "Helvetica Neue";
+    background-color: #a9a9a9;
+    font-size: 15px;
+    width: 220px;
+    font-weight: 300;
+    margin: 5px 0 10px 0;
+    border-radius: 3px;
+    border: none!important;
+    padding: 0;
+
+}
+
+.uploadImageDiv #file-upload-button{
+    border: none!important;
+}
+
+
+.totalCollectionsDivInfo {
+    color: #a9a9a9;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    width: 250px;
+    margin: 10px auto;
+    display: flex;
+    padding-left: 15px;
+    justify-content: flex-start;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+}
+
+.totalCollectionsDivInfo div {
+    font-weight: 500;
+    width: fit-content;
+}
+
+.buttonWrapperRight {
+    width: 220px;
+    display: flex;
+    justify-content: center;
+}
+.buttonWrapperRight label{
+    width: 100%;
+    padding-right: 9px;
+    margin-top: 10px;
+}
+
+.UploadElementsDiv button {
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    height: 41px;
+    border-radius: 5px;
+    background-color: #212121;
+    outline: none !important;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.7);
+
+}
+
+.UploadElementsDiv button:hover {
+    box-shadow: 0 0 3px 2px crimson;
+
+}
+
+.UploadElementsDiv button div {
+    display: flex;
+    justify-content: center;
+
+}
+
+.UploadElementsDiv svg {
+    position: relative;
+    align-items: center;
+    font-size: 45px;
+    bottom: 2px;
+    padding: 2px 0;
+
+}
+
+.buttonWrapperRight svg path:hover {
+    fill: crimson;
+
+}
+
+.buttonWrapperRight svg path {
+    fill: rgba(220, 20, 60, 0.7);
+}

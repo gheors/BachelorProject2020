@@ -1,0 +1,40 @@
+.PageContainer{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background-color: #4e4e4e;
+    justify-content: space-between;
+    height: calc(100vh - 80px);
+
+}
+
+.containerMainFull{
+    position: relative;
+    width: 920px;
+    transition: 100ms ease-out;
+    height: 750px;
+}
+
+
+.allSwiperSlides{
+    width: 100%;
+    margin: auto;
+    overflow: auto;
+    flex-wrap: nowrap;
+    justify-content: center;
+    height: inherit;
+}
+
+.allSwiperSlides::-webkit-scrollbar {
+    display: none;
+}
+
+.bottomBarDiv{
+    width: 99.4%;
+    height: 120px;
+    position: fixed;
+    background-color: #212121;
+    bottom: 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+}

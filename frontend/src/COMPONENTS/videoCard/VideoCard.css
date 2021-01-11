@@ -1,0 +1,227 @@
+.VideoCard {
+    width: fit-content !important;
+    height: fit-content !important;
+    margin: 5px 7px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px black;
+    -webkit-filter: drop-shadow(0 0 0 rgba(41, 41, 41, 0.77));
+    border: 1px solid rgba(220, 20, 60, 0.4);
+    background-color: rgba(0,0,0,0.1);
+    display: flex;
+}
+
+.VideoCard:hover{
+    box-shadow: 0 0 7px rgba(205,255,0,0.9);
+    -webkit-filter: drop-shadow(0 0 0 rgba(41, 41, 41, 0.77));
+    border: 1px solid rgba(205,255,0, 0.9);
+}
+
+
+.leftVideoCard{
+    border-radius: 3px 3px 0 0;
+    width: 490px;
+    height: 275px;
+}
+.rightVideoCard{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #1c1c1c;
+    border-radius: 0 5px 5px 0;
+}
+
+.ads{
+    color: crimson;
+    font-size: 20px;
+    top:8px;
+    right: 25px;
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 10px 5px auto;
+}
+.adsIcon{
+    font-size: 19px;
+}
+
+.sliderWrapper{
+
+
+}
+.ChooseDiv{
+    color: #a9a9a9;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    font-size: 12px;
+  margin:5px 0 10px 10px;
+    letter-spacing: 0.05em;
+}
+.ChooseDiv svg{
+    font-size: 20px;
+}
+.ChooseDiv svg path{
+fill: crimson;
+}
+
+.titleVideoCard{
+    color: #fff;
+    padding:5px 7px;
+    width: fit-content;
+    background-color: #2b2b2b;
+    box-shadow: 0 0 2px 1px #a9a9a9;
+    border-radius: 0 5px 5px 0;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    align-items: center;
+
+}
+.titleVideoCard svg {
+    font-size: 20px;
+}
+.titleVideoCard svg path {
+    fill: crimson;
+}
+
+
+.reactPlayer {
+    width: inherit !important;
+    height: inherit !important;
+}
+
+.reactPlayer video {
+    border-radius: 5px 0 0 5px !important;
+
+
+}
+
+.css-13cua4c {
+    display: inline-block !important;
+    position: relative !important;
+    left: 10px;
+    top: 5px;
+
+}
+
+.loadingClassActive{
+    font-size: 10px!important;
+    margin: auto;
+}
+
+.loadingClass{
+    margin: auto;
+    font-family: "Helvetica Neue";
+    font-size: 10px;
+}
+.sliderDiv{
+    display: flex;
+    align-items: flex-end;
+}
+.slider_videos {
+    width: 80% !important;
+    margin:  auto;
+}
+
+.rc-slider-rail {
+    background-color: #212121!important;
+}
+
+.rc-slider-track {
+    background-color: crimson!important;
+}
+
+.rc-slider-handle {
+    border: 2px solid #5f5f5f !important;
+    background-color: crimson!important;
+}
+
+.ff_parent {
+    display: flex;
+    flex-direction: row;
+    width: 82%;
+    height: fit-content;
+    margin: 10px auto;
+
+    justify-content: space-between;
+}
+
+.delete {
+    position: relative;
+    width: fit-content;
+    margin:  0 auto 0 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    color: #a9a9a9;
+    letter-spacing: 0.05em;
+
+}
+
+.checkbox {
+    position: relative;
+    margin-left: 7px!important;
+    padding: 0 !important;
+}
+
+.checkbox path {
+    fill: #fff!important;
+
+}
+.fps {
+    font-size: 12px;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    color: #a9a9a9;
+    letter-spacing: 0.05em;
+}
+
+.frames {
+    margin-left: 10px;
+    font-size: 12px;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    color: #a9a9a9;
+    letter-spacing: 0.05em;
+}
+
+.videoCardButtonsDiv {
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    margin: 0 auto 5px auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.videoCardButtonsDiv Button {
+    background-color: #333333;
+    width: 90px!important;
+    height: 25px!important;
+    font-family: "Helvetica Neue";
+    padding: 0!important;
+    letter-spacing: 0.05em;
+
+    font-size: 10px;
+
+
+}
+
+.buttonFragment {
+    border-radius: 5px 20px 5px 20px!important;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    position: relative;
+}
+
+.buttonDelete {
+    border-radius: 5px 20px 5px 20px!important;
+    color: crimson;
+
+}
+

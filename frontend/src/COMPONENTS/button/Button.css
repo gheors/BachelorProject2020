@@ -1,0 +1,80 @@
+:root {
+  --primary1: #ccff00;
+  --primary2: crimson;
+}
+
+.button {
+  padding: 8px 20px;
+  border-radius: 2px;
+  outline: none !important;
+  border: none;
+  cursor: pointer;
+}
+
+.button-primary {
+  background-color: var(--primary1);
+  color: #242424;
+  border: 1px solid var(--primary1);
+}
+
+.button-outline {
+  background-color: transparent;
+  color: #ccff00;
+  padding: 8px 20px;
+  border: 1px solid var(--primary1);
+  transition: all 0.3s ease-out;
+}
+
+.button-secondary{
+  background-color: var(--primary2);
+  color: #fff;
+  border: 1px solid var(--primary2);
+}
+
+.button-outline-secondary {
+  background-color: transparent;
+  color: #ccff00;
+  padding: 8px 20px;
+  border: 1px solid var(--primary2);
+  transition: all 0.3s ease-out;
+}
+.button-outline-disabled{
+  background-color: #333333;
+  color: #1c1c1c;
+  padding: 8px 20px;
+  border: 1px solid #1c1c1c;
+}
+
+
+.button-medium {
+  padding: 8px 20px;
+  font-size: 18px;
+}
+
+.button-large {
+  padding: 12px 26px;
+  font-size: 20px;
+}
+
+.button-large {
+  padding: 12px 26px;
+  font-size: 20px;
+}
+
+.button-full {
+  padding: 12px 26px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.button-outline:hover{
+  background: #ccff00;
+  color: #242424;
+  transition: 250ms;
+}
+
+.button-outline-secondary:hover{
+  background: crimson;
+  color: #fff;
+  transition: 250ms;
+}

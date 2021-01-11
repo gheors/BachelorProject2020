@@ -1,0 +1,57 @@
+.boxCroppedSample {
+    font-family: sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1c1c1c;
+    flex-direction: column;
+    /*border:1px solid orange;*/
+    margin: 5px 0!important;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,0.7);
+    /*height: 450px;*/
+    /*width: 750px;*/
+
+
+
+
+}
+
+.ReactCrop__image{
+    max-width: 750px;
+    max-height: 450px;
+}
+
+.ReactCrop__crop-selection{
+    border-image-source: none;
+    border: 1px solid #ffc109;
+    border-radius: 3px;
+}
+
+.heello{
+   object-fit: contain;
+    margin: 0 auto 0 auto;
+
+background-color: #1c1c1c;
+    border-radius: 3px;
+    /*border:1px solid red;*/
+}
+
+.tagInsideDiv{
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+.tagInsideDiv div{
+    /*padding: 0 5px;*/
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 4px;
+    width: fit-content;
+    padding: 0 5px;
+    margin: 0 1px 1px  0;
+    font-family: "Helvetica Neue";
+
+
+}

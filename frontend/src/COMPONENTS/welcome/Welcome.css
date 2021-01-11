@@ -1,0 +1,106 @@
+.mainContainer {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.9);
+}
+
+
+.headerFirstPage{
+position: relative;
+  /*/top: 150px;*/
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.titleFirstPage{
+  font-size: 7rem;
+  color: crimson;
+}
+
+.titleFirstPageIcon{
+  align-items: center;
+  display: flex;
+  margin-left: 2em;
+}
+.titleFirstPageIcon svg{
+  font-size: 7rem;
+  margin: auto;
+}
+.titleFirstPageIcon svg path{
+  fill: crimson;
+}
+
+.TitleMainContainer{
+  min-height: 100%;
+  position: relative;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.TitleMainContainer > h1 {
+  color: crimson;
+  font-size: 100px;
+
+}
+
+.TitleMainContainer > p {
+  margin-top: 8px;
+  color: crimson;
+  font-size: 32px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.hero-buttons {
+  margin-top: 32px;
+  display: flex;
+}
+
+.hero-buttons .button {
+  margin: 6px;
+}
+
+.fa-play-circle {
+  margin-left: 4px;
+}
+
+@media screen and (max-width: 960px) {
+  .mainContainer > h1 {
+    font-size: 70px;
+    margin-top: -150px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mainContainer > h1 {
+    font-size: 50px;
+    margin-top: -100px;
+  }
+  .mainContainer > p {
+    font-size: 30px;
+  }
+
+  .hero-buttons{
+    display: flex;
+    flex-direction: column;
+  }
+  .button-mobile {
+    display: block;
+    text-decoration: none;
+  }
+  .button {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .mainContainer{
+    width: 110%;
+  }
+}

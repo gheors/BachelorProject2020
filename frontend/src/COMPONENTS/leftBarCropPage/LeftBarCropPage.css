@@ -1,0 +1,177 @@
+.leftSideBarContainer {
+    width: 250px;
+    height: 765px;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    margin: 5px 4px 6px 4px !important;
+    background-color: #212121;
+}
+
+.titleLftBarDiv {
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    font-size: 20px;
+    color: #a9a9a9;
+    width: 100%;;
+    margin-left: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100px;
+    letter-spacing: 0.1em;
+}
+
+.bastoneLeft {
+    color: crimson;
+}
+
+.bastone {
+    color: crimson;
+    font-size: 30px;
+    position: relative;
+    bottom: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.bastoneRight {
+    font-family: "Helvetica Neue";
+    margin-left: 3px;
+}
+
+.imagesDivLeftCrop {
+    width: 240px;
+    margin: auto;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 1);
+    overflow: auto;
+    height: fit-content;
+    max-height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #797979;
+    padding: 2px 0;
+    border-radius: 3px;
+}
+
+.imagesDivLeftCrop::-webkit-scrollbar {
+    display: none;
+}
+
+.imageCardLeftCrop {
+    display: flex;
+    width: 230px;
+    height: 80px !important;
+    margin: 3px auto;
+    box-shadow: 0 0 1px 1px black;
+    border-radius: 3px;
+    transition: 200ms ease-in;
+    background-color: #212121;
+
+}
+
+.imageCardLeftCrop img {
+    width: 140px;
+    height: 80px;
+    padding: 5px;
+    border-radius: 8px !important;
+}
+
+
+.imageCardLeftCrop:hover {
+    box-shadow: 0 0 2px 2px rgba(220, 20, 60, 0.7);
+    transition: 200ms ease-out;
+    color: crimson!important;
+}
+.imageCardLeftCropData{
+    width: 90px;
+}
+.imageCardLeftCropIconsDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imageCardLeftCropIconDelete{
+font-size: 35px;
+}
+.imageCardLeftCropIconDelete svg path {
+    fill: crimson;
+}
+.imageCardLeftCropIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+.imageCardLeftCropIcon svg path{
+    fill: #1e9dff;
+}
+
+.numberPicture {
+    color: #a9a9a9;
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 5px 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+.activeColor{
+    color: crimson!important;
+}
+
+.changeCollectionDiv {
+    justify-content: center;
+    align-items: flex-end;
+    height: 100px;
+    display: flex;
+    width: 250px;
+    font-family: "Helvetica Neue";
+}
+
+.buttonChangeCollection {
+    height: 45px;
+    border: none;
+    box-shadow: 0 0 3px 1px #5b5a5a;
+    width: 95%;
+    margin: auto;
+    background-color: unset;
+    color: #919191;
+    border-radius: 5px;
+    font-weight: 300;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttonChangeCollection svg{
+    font-size: 25px;
+    margin: 0 9px;
+
+}
+
+.buttonChangeCollection svg path{
+fill: crimson;
+
+}
+.buttonChangeCollection:hover{
+    box-shadow: 0 0 3px 2px crimson;
+    color: crimson;
+    font-weight: 400;
+
+}
+
+.activeImage{
+    background-color: #ffc109!important;
+}
+
+.infoTotalImagesLeft{
+    color: #a9a9a9;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: fit-content;
+    font-family: "Helvetica Neue";
+}

@@ -1,0 +1,44 @@
+.inputDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 0 5px 0;
+}
+
+.form-control2 {
+    height: calc(1em + .75rem + 2px) !important;
+    width: 210px;
+    border-bottom: 1px solid #a9a9a9;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    /*box-shadow: 0 0 1px 1px #535353 !important;*/
+    background-color: #212121!important;
+    color: #a9a9a9 !important;
+    outline: none;
+
+}
+
+.form-control2:hover {
+    /*box-shadow: 0 1px 1px 2px #535353 !important;*/
+    cursor: pointer;
+
+}
+
+.form-control2::placeholder {
+    font-size: 14px;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    color: #a9a9a9;
+    letter-spacing: 0.02em;
+    padding-left: 3px !important;
+}
+
+.labelInput {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #b7b7b7;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    font-family: "Helvetica Neue";
+}

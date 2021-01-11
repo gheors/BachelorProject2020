@@ -1,0 +1,185 @@
+
+.currentTagBuildingContainer {
+    width: 350px;
+    margin: 5px!important;
+
+}
+.currentTagBuildingContainerTop{
+    background-color: #212121;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+.titleCurrentCardCrop{
+    height: 40px;
+    margin: 5px 20px 5px 12px;
+    display: flex;
+    color: #ccff00;
+    font-size: 23px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageCardBoxCrop {
+    width: 350px;
+    height: 300px !important;
+    display: flex;
+    justify-content: center;
+}
+
+.currentCard {
+    width: 300px;
+    height: 300px;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px 2px #ccff00;
+
+}
+
+
+
+
+.summaryCategory{
+    width: 240px;
+border-right: 1px solid #333333;
+    border-radius: 0 3px 3px 0;
+}
+.floatRight{
+    margin: 0 0 1px auto!important;
+    box-shadow: none!important;
+    align-items: center!important;
+    color: #333333;
+}
+
+
+.tagsDivCategory{
+    display: flex;
+    width: 230px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 14px;
+    margin: 4px auto;
+    padding: 2px;
+    overflow: auto;
+    max-height: 140px;
+
+}
+.tagsLabelCrop {
+    position: absolute;
+    right: 24px;
+    top:35px;
+    color: #333;
+}
+.lenCategoryDiv{
+width: fit-content;
+    color: #4e4e4e;
+    font-size: 12px;
+    margin: 5px;
+    font-family: "Helvetica Neue";
+}
+
+
+.currentTagsDiv{
+    /*border: 1px solid green;*/
+    width: 300px;
+    height: 90px;
+    margin:  0  auto;
+    color: #ffc109;
+    overflow: auto;
+}
+
+.titleTags{
+font-family: "Helvetica Neue";
+    color: #5f5f5f;
+    margin: 5px 0 3px 0;
+    font-size: 14px;
+}
+
+.currentTags{
+    color: #a9a9a9;
+    font-weight: 300;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.currentTag {
+    padding: 2px 5px;
+    font-family: "Helvetica Neue";
+}
+
+.singleTagDivCrop{
+    font-family: "Helvetica Neue";
+    padding: 2px 7px;
+    transition: 200ms ease-out;
+    border-radius: 3px;
+    width: fit-content;
+}
+
+.singleTagDivCrop:hover{
+    font-family: "Helvetica Neue";
+    box-shadow: 0 0 2px 2px rgba(205,255,0,0.5);
+    cursor: pointer;
+    color: #ccff00;
+    transition: 200ms ease-in;
+}
+
+
+.existingCategoriesContainer{
+    width: 300px;
+    height: 250px;
+    overflow: auto;
+    margin: auto;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 1px #ccff00;
+}
+
+
+
+
+.selectTagDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*margin: 10px 0 5px 25px;*/
+    color: #ccff00;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    font-size: 15px;
+    height: 50px;
+
+}
+
+
+
+.titleBarWrapper{
+    display: flex;
+    width: 330px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+.saveButtonCroppedImage{
+    width: 70px;
+    height: 30px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    border: none;
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+    font-size: 15px;
+    margin-right: 10px;
+    background-color: #1c1c1c;
+    box-shadow: 0 0 1px 1px #5f5e5e;
+    color: #5f5e5e;
+    margin-bottom: 5px;
+}
+.saveButtonCroppedImage:hover{
+    box-shadow: 0 0 2px 2px #ccff00;
+    color: #ccff00;
+    transition: 200ms ease-out;
+}
+
+.textDivTagAdjustCurrentCrop{
+     font-weight: 400!important;
+
+}

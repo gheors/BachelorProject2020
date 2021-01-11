@@ -1,0 +1,158 @@
+.displayCurrentImageContainer {
+    width: 750px;
+    height: 760px;
+    border-radius: 5px;
+    margin: 5px 4px !important;
+
+}
+
+.titleCurrentImage {
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    font-size: 25px;
+    color: #a9a9a9;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100px !important;
+    letter-spacing: 0.1em;
+    background-color: #212121;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+.bottomTitleCurrentImage{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+
+.bottomTitleCurrentImage div {
+    width: 200px;
+}
+.counterImages{
+    display: flex;
+    font-size: 17px;
+    align-items: flex-end;
+}
+.counterImages div{
+    text-align: center;
+    font-family: "Helvetica Neue"!important;
+    box-shadow: inset 0 0 3px 1px rgba(0,0,0,0.7);
+    padding: 0 10px 0 12px;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 0 auto!important;
+    display: flex;
+    height: fit-content;
+}
+
+.cardsLabelCurrentImage div{
+    margin-left: 20px;
+    font-family: "Helvetica Neue"!important;
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
+    padding: 0 10px 0 12px;
+    align-items: center;
+    width: fit-content;
+    display: flex;
+    border-radius: 5px;
+
+}
+
+.usedImage{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 30px;
+    align-items: flex-end;
+}
+.usedImage div{
+    display: flex;
+    margin-right: 20px;
+    height: fit-content;
+    width: fit-content;
+    align-items: center;
+}
+
+.activeUsed path{
+    fill: #1e9dff;
+}
+.inActiveUsed path{
+    fill: #333333;
+}
+
+.settingsCurrentImageDiv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    background-color: #212121;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+.centralSettings {
+    display: flex;
+    color: #ffc109;
+}
+
+.centralSettings div {
+    width: 150px;
+    height: 40px;
+    box-shadow: 0 0 1px 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: "Helvetica Neue";
+    letter-spacing: 0.1em;
+}
+
+.leftArrowCurrent, .rightArrowCurrent {
+    font-size: 50px;
+    color: crimson;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.leftArrowCurrent svg path, .rightArrowCurrent svg path {
+    fill: crimson;
+}
+
+.generalInfo {
+    display: flex;
+    height: 100px;
+    color: #a9a9a9;
+    justify-content: center;
+    align-items: center;
+    background-color: #212121;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.generalInfoEl {
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 0 1px 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-family: "Helvetica Neue";
+    letter-spacing: 0.1em;
+    padding: 3px 7px;
+}
+
+.generalInfoElNumber{
+    color: crimson;
+    margin-left: 5px;
+    font-size: 17px;
+}

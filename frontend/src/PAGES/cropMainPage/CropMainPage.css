@@ -1,0 +1,128 @@
+.mainCropContainer {
+    position: absolute;
+    width: 100%;
+    min-height: 93.6vh;
+    z-index: 10000;
+}
+
+.topCrop {
+    display: flex;
+    margin: 2px auto 2px auto;
+
+}
+
+.rightContainerCrop{
+    width: 664px;
+    overflow: hidden;
+}
+
+.rightTopCropContainer{
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+}
+
+.rightBarCollectionsContainer {
+    width: 294px;
+    height: 440px;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    margin: 5px 0 0 4px  !important;
+    background-color: #212121;
+}
+
+
+.bottomCrop {
+    width: calc(100%);
+    margin: auto;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    height: 98px;
+    border-radius: 5px 5px 0 0;
+    background-color: #212121;
+}
+
+
+.imageCardBoxCrop {
+    width: 350px;
+    height: 320px !important;
+    display: flex;
+    justify-content: center;
+}
+
+.currentCard {
+    min-width: 300px;
+    min-height: 300px;
+    border-radius: 3px;
+    box-shadow: 0 1px 5px 2px #ccff00;
+    object-fit: contain;
+
+}
+
+.divButtonsSelectCategory {
+    display: flex;
+    width: 300px;
+    height: 50px;
+    margin: auto;
+    justify-content: space-between;
+
+}
+
+.buttonNewCategory {
+    width: 49%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    font-size: 17px;
+    color: #a9a9a9;
+    background-color: #212121;
+    box-shadow: 0 0 1px 1px #a9a9a9;
+    letter-spacing: 0.1em;
+}
+
+.buttonExistingCategory {
+    width: 49%;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    font-size: 17px;
+    color: #a9a9a9;
+    background-color: #212121;
+    box-shadow: 0 0 1px 1px #a9a9a9;
+    letter-spacing: 0.1em;
+
+}
+
+.newTagInputDiv {
+    width: 300px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+
+
+.totalImagesCollectionDiv {
+    display: flex;
+    font-weight: 100;
+    font-family: "Helvetica Neue";
+    letter-spacing: 0.1em;
+    color: #a9a9a9;
+    font-size: 27px;
+    position: relative;
+    margin: auto 0 20px 10px;
+}
+
+.totalImagesCollectionDivNumber {
+    color: crimson;
+    margin-left: 8px;
+    font-size: 30px;
+    position: relative;
+    bottom: 15px;
+}
+

@@ -1,0 +1,37 @@
+.dataset {
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: absolute;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);
+}
+
+.upperDivDataSet, .lowerDivDataSet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
+.titleCentralNav {
+    display: flex;
+    color: #a9a9a9!important;
+    font-weight: 200 !important;
+    align-items: flex-end;
+    font-size: 20px;
+    position: relative;
+    bottom: 10px;
+    margin-left: 5px;
+    letter-spacing: 0.1em;
+    font-family: "Helvetica Neue";
+}
+
+.titleCentralNav div {
+    padding: 0 8px;
+    font-weight: bold;
+    position: relative;
+
+}
