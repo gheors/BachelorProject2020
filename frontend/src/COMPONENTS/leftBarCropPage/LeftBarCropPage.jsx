@@ -21,7 +21,8 @@ export default function LeftBarCropPage(props) {
 
     return (
         <>
-            <div className={'leftSideBarContainer'}>
+
+            <div className={'leftDivCropPage step_1_Crop'}>
                 <div className={'titleLftBarDiv'}>
                     <div className={'bastoneLeft'}>Current Collection</div>
                     {props.currentFolder}
@@ -56,12 +57,17 @@ export default function LeftBarCropPage(props) {
                         })}
                 </div>
                 <div className={'infoTotalImagesLeft'}>
-                    <div>Total: <span style={{color:'crimson',fontSize:'17px'}}>{props.imagesArray.length}</span> images</div>
+                    <div>Total: <span
+                        style={{color: 'crimson', fontSize: '17px'}}>{props.imagesArray.length}</span> images
+                    </div>
                 </div>
                 <div className={'changeCollectionDiv'}>
                     <button onClick={changeCollection} className={'buttonChangeCollection'}>
-                        <GiCardExchange/>  Change Collection <GiCardExchange/>
+                        <GiCardExchange/> other Collection <GiCardExchange/>
                     </button>
+                </div>
+                <div className={'buttonTutorialDiv buttonTutorialCrop'}
+                     onClick={() => props.setIsTourOpen(!props.isTourOpen)}>Tutorial
                 </div>
             </div>
         </>

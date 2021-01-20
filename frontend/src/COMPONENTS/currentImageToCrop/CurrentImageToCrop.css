@@ -1,14 +1,5 @@
-.displayCurrentImageContainer {
-    width: 750px;
-    height: 760px;
-    border-radius: 5px;
-    margin: 5px 4px !important;
-
-}
 
 .titleCurrentImage {
-    font-family: "Helvetica Neue";
-    font-weight: 300;
     font-size: 25px;
     color: #a9a9a9;
     width: 100%;
@@ -17,69 +8,88 @@
     flex-direction: column;
     justify-content: space-evenly;
     height: 100px !important;
-    letter-spacing: 0.1em;
     background-color: #212121;
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
+
 }
 
-.bottomTitleCurrentImage{
+.currentImageCrop {
+    font-size: 20px !important;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    margin-left: 20px;
+    letter-spacing: 0.1em;
+    width: 100%;
+}
+
+.bottomTitleCurrentImage {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    position: relative;
 
 }
 
-.bottomTitleCurrentImage div {
-    width: 200px;
-}
-.counterImages{
+.counterImages {
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    /* width: 100px; */
     display: flex;
     font-size: 17px;
     align-items: flex-end;
+    transform: translate(-50%, -50%);
+
 }
-.counterImages div{
+
+.counterImages div {
     text-align: center;
-    font-family: "Helvetica Neue"!important;
-    box-shadow: inset 0 0 3px 1px rgba(0,0,0,0.7);
+    font-family: "Helvetica Neue" !important;
+    box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.7);
     padding: 0 10px 0 12px;
     border-radius: 5px;
-    width: fit-content;
-    margin: 0 auto!important;
-    display: flex;
-    height: fit-content;
-}
 
-.cardsLabelCurrentImage div{
-    margin-left: 20px;
-    font-family: "Helvetica Neue"!important;
-    box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
-    padding: 0 10px 0 12px;
-    align-items: center;
-    width: fit-content;
+    margin: 0 auto !important;
     display: flex;
-    border-radius: 5px;
+
+    font-weight: 300;
+    letter-spacing: 0.1em;
 
 }
 
-.usedImage{
+/*.cardsLabelCurrentImage div {*/
+/*    margin-left: 20px;*/
+/*    font-family: "Helvetica Neue" !important;*/
+/*    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.7);*/
+/*    padding: 0 10px 0 12px;*/
+/*    align-items: center;*/
+/**/
+/*    display: flex;*/
+/*    border-radius: 5px;*/
+
+/*}*/
+
+.usedImage {
     display: flex;
     justify-content: flex-end;
     font-size: 30px;
     align-items: flex-end;
 }
-.usedImage div{
+
+.usedImage div {
     display: flex;
     margin-right: 20px;
-    height: fit-content;
-    width: fit-content;
+
+
     align-items: center;
 }
 
-.activeUsed path{
+.activeUsed path {
     fill: #1e9dff;
 }
-.inActiveUsed path{
+
+.inActiveUsed path {
     fill: #333333;
 }
 
@@ -87,7 +97,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    height: 60px;
     background-color: #212121;
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
@@ -99,25 +109,89 @@
 }
 
 .centralSettings div {
-    width: 150px;
     height: 40px;
     box-shadow: 0 0 1px 1px black;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 10px;
-    border-radius: 5px;
+    padding: 0 20px;
+    border-radius: 50px;
     font-size: 20px;
+    font-weight: 400;
     font-family: "Helvetica Neue";
     letter-spacing: 0.1em;
+    cursor: pointer;
+    width: 160px;
+}
+
+.cardsButtonDiv {
+    color: crimson !important;
+    font-size: 1.5vw !important;
+    display: flex;
+    justify-content: space-evenly;
+    -webkit-filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 1)) !important;
+    align-items: center;
+
+}
+
+.fa-eye {
+    margin-left: 10px;
+    position: relative;
+    top: 3px;
+    font-size: 20px;
+}
+
+.cardsButtonDiv:hover {
+    box-shadow: 0 0 3px 2px crimson;
+    color: crimson !important;
+}
+
+.cardsButtonDiv svg {
+    margin-left: 10px;
+}
+
+.cardsButtonDiv svg path {
+    fill: crimson;
+}
+
+.cropModeButton:hover {
+    box-shadow: 0 0 3px 2px #ffc109!important;
+
+}
+
+.cropModeButton i {
+    margin-left: 10px;
+}
+.cropModeButton  {
+    box-shadow: 0 0 4px 2px black!important;
+}
+
+.AitiaCrop {
+    color: crimson;
+    font-weight: bold;
+    box-shadow: none !important;
+    font-size: 30px !important;
+    cursor: auto !important;
+    font-family: unset !important;
 }
 
 .leftArrowCurrent, .rightArrowCurrent {
-    font-size: 50px;
+    font-size: 2.5vw;
     color: crimson;
-    margin: 0 20px;
+    background-color: white;
+    margin: 0 10px;
     display: flex;
     align-items: center;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 50px;
+    transition: 200ms;
+}
+
+.leftArrowCurrent:hover, .rightArrowCurrent:hover {
+    transition: 200ms;
+    box-shadow: 0 0 1px 2px rgba(220, 20, 60, 0.7);
+
 }
 
 .leftArrowCurrent svg path, .rightArrowCurrent svg path {
@@ -126,19 +200,17 @@
 
 .generalInfo {
     display: flex;
-    height: 100px;
+    height: 40px;
     color: #a9a9a9;
     justify-content: center;
     align-items: center;
     background-color: #212121;
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .generalInfoEl {
-    width: fit-content;
-    height: fit-content;
     box-shadow: 0 0 1px 1px black;
     display: flex;
     justify-content: center;
@@ -151,8 +223,14 @@
     padding: 3px 7px;
 }
 
-.generalInfoElNumber{
+.generalInfoElNumber {
     color: crimson;
     margin-left: 5px;
     font-size: 17px;
+}
+
+.cardsActive{
+    font-size: 30px;
+    margin-left: 10px;
+
 }

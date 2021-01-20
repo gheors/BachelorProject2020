@@ -1,10 +1,16 @@
+.react-responsive-modal-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .video_wrapper{
     width: 100%    !important;
     height: 655px   !important;
 }
 
 .video_wrapper iframe{
-    outline-color: #ccff00 !important;
+    outline-color: crimson !important;
     height: 655px   !important;
 
 }
@@ -17,15 +23,20 @@
     margin: auto;
 }
 .react-responsive-modal-modal h3{
-    color: #ccff00;
+    color: crimson;
 
 }
 
 .react-responsive-modal-closeButton{
-    outline-color: #ccff00!important;
+    border: none;
+    outline: none!important;
+}
+.react-responsive-modal-closeButton:hover{
+  box-shadow: 0 0 3px 2px rgba(0,0,0,0.7);
+    border-radius: 7px;
 }
 svg path{
-    fill: #ccff00;
+    fill: crimson;
 }
 
 @media only screen and (max-width: 1024px) {

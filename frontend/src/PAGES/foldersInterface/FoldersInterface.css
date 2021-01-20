@@ -1,22 +1,34 @@
-.PageContainer{
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    background-color: #4e4e4e;
-    justify-content: space-between;
-    height: calc(100vh - 80px);
+
+.mainCropContainer {
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    grid-gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: stretch;
+    grid-template-areas:
+    "leftArea       centerArea        addNew         addNew"
+    "leftArea       centerArea        categories     categories"
+    "leftArea       centerArea        currentCard    cards"
+    "leftArea       bottomContainer   currentCard    cards";
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-columns: 250px auto auto auto;
+}
+
+
+.PageContainer {
 
 }
 
-.containerMainFull{
+.containerMainFull {
     position: relative;
-    width: 920px;
     transition: 100ms ease-out;
-    height: 750px;
 }
 
 
-.allSwiperSlides{
+.allSwiperSlides {
     width: 100%;
     margin: auto;
     overflow: auto;
@@ -29,7 +41,7 @@
     display: none;
 }
 
-.bottomBarDiv{
+.bottomBarDiv {
     width: 99.4%;
     height: 120px;
     position: fixed;
@@ -37,4 +49,128 @@
     bottom: 5px;
     margin: 0 5px;
     border-radius: 5px;
+}
+
+.posTutorial {
+    bottom: 0 !important;
+    left: 50% !important;
+}
+
+.collectionExample {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.collectionExample i {
+    font-size: 80px;
+    color: #323232;
+    -webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 1));
+
+}
+
+.collectionExample img {
+    width: 240px;
+    height: 80px;
+    box-shadow: 0 0 3px 2px black;
+    border-radius: 5px;
+
+}
+
+.arrowCollections {
+    position: unset !important;
+    color: #212121 !important;
+
+}
+
+.collectionModifyExample, .collectionRemoveExample {
+    margin-left: 15px;
+    -webkit-filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 1));
+
+}
+
+.collectionRemoveExample {
+    color: crimson !important;
+}
+
+.collectionModifyExample {
+    color: #ccff00 !important;
+}
+
+.ulCollection, .ulCurrentImages, .ulRight {
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+. .ulRight li {
+    display: flex;
+}
+
+.ulCollection li {
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+}
+
+.collectionTourHeight {
+    height: 320px;
+}
+
+.ulCurrentImages {
+    margin-left: 40px;
+    margin-top: 10px;
+
+}
+
+.ulCurrentImages li {
+    margin: 0 0 30px 0;
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+}
+
+.ulCurrentImages li i {
+    color: crimson;
+    margin: 10px;
+    font-size: 30px;
+    position: relative;
+    top: 4px;
+}
+
+.ulCurrentImages li img {
+    width: 50px;
+}
+
+.adjustDescriptionWidth {
+    max-width: 330px;
+}
+
+.adjustButtonsKey {
+    width: 70px !important;
+    margin-left: 10px;
+    position: relative;
+    bottom: 2px;
+}
+
+.ulRight li {
+    margin: 10px 0;
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+}
+
+.multiDeleteExample {
+    width: 300px;
+}
+
+.dataSetBuildingTDiv {
+    display: flex;
+    margin-top: 10px;
+}
+
+.dataSetBuildingTDiv img {
+    display: flex;
+    max-height: 150px;
+    border-radius: 10px;
+}
+
+.adjustPosBack {
+    bottom: -5% !important;
 }

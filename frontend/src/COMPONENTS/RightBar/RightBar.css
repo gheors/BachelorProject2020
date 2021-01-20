@@ -1,15 +1,13 @@
 
 .rightBar {
     background-color: #212121;
-    width: 475px;
+    width: 465px;
     height: 740px;
     display: flex;
-    margin-right: 10px;
-    margin-top: 5px;
     justify-content: center;
-    box-shadow: 1px 0 4px black;
     border-radius: 5px;
     overflow: hidden;
+    margin: 10px;
 }
 
 .imagesDivRight {
@@ -25,17 +23,6 @@
     border-radius: 3px;
 }
 
-.textNoImagesRight {
-    text-align: left;
-    color: #797979;
-    letter-spacing: 0.1em;
-    font-family: "Helvetica Neue";
-    font-size: 40px;
-    font-weight: 100;
-    width: 370px;
-    padding: 25px 0 !important;
-}
-
 .imagesDivRight div {
     margin-top: 5px;
     padding: 2px;
@@ -47,70 +34,47 @@
     max-width: 140px;
     max-height: 80px;
     margin: 2px;
-    border: 1px solid black;
     border-radius: 3px;
-    opacity: 0.5;
-
-
+    /*opacity: 0.65;*/
+    box-shadow: 0 0 2px 1px black;
 }
 
 .imagesDivRight div img:hover {
-    margin: 2px;
-    border: 1px solid black;
-    border-radius: 3px;
-    opacity: 1;
+    box-shadow: 0 0 4px 2px black;
 
 }
 
-.addImage {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    bottom: 10px;
-    left: 50%;
-    display: flex;
-    justify-content: center;
-}
 
 .divIconRight {
     margin: 0 20px;
-
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #a9a9a9;
+    color: #212121;
     font-size: 50px;
     cursor: pointer;
-    box-shadow: 0 0 4px 2px black;
     border-radius: 5px;
+    padding: 0;
+    width: fit-content;
+    height: fit-content;
 }
 
 .divIconRight:hover {
     color: crimson;
+    background-color: #212121;
     box-shadow: 0 0 4px 2px crimson;
 
 }
 
-.addImage img {
-    width: inherit;
-    height: inherit;
-
-}
-
-.addImage img:hover {
-    transform: scale(1.01);
-    -webkit-filter: drop-shadow(0 1px 1px rgb(0, 0, 0));
-}
 
 .counterImageFolder {
     position: absolute;
-    bottom: 3px;
-    right: 3px;
-    color: crimson;
+    top: 0;
+    right: 2px;
+    color: #ffc109;
     background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 3px;
+    border-radius: 2px;
     margin: 3px;
-    /*padding: 2px 4px;*/
 }
 
 .checkDelete {
@@ -121,21 +85,16 @@
     transform: translate(-50%, -50%);
 }
 
-.PrivateSwitchBase-input-4 {
-    width: fit-content !important;
-    height: fit-content !important;
-}
-
 .MuiButtonBase-root {
     padding: 0 !important;
     margin: 0 !important;
 }
 
 .divDeleteSelected {
-    width: 93%;
+    width: 99%;
     border-radius: 5px;
     margin: 10px auto;
-    box-shadow: 0 0 2px 1px crimson;
+    box-shadow: 0 0 2px 1px #ffc109;
     height: 40px;
     display: flex;
     justify-content: space-between;
@@ -149,22 +108,70 @@
 }
 
 .deleteSelectedButton {
-    margin: 0 5px 0 0;
-    height: 30px;
-    width: fit-content;
+    margin: 0 4px 0 0;
+    height: 30px;;
     padding: 0 7px;
-    box-shadow: 0 0 2px 1px #ffc109;
-    color: #ffc109;
+    box-shadow: 0 0 4px 2px black;
+    color: crimson;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 5px;
+    border-radius: 3px;
     font-family: "Helvetica Neue";
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 0.03em;
     cursor: pointer;
 }
 
+.deleteSelectedButton:hover {
+    box-shadow: 0 0 2px 2px crimson;
+}
+
 .deleteSelectedButton i {
     margin: 0 0 0 5px;
+}
+
+.iconWrapperRight {
+    font-size: 35px;
+    position: relative;
+    bottom: 3px;
+    transform: rotateX(40grad);
+
+}
+
+.iconWrapperRight svg {
+    transform: rotateZ(-90deg);
+
+}
+
+.iconWrapperRight svg path {
+    fill: #ffc109;
+}
+
+.navbar-toggle2 {
+    color: #ffc109;
+}
+
+.goToCropButtonDiv {
+    color: #212121;
+    border-radius: 10px;
+    display: flex;
+    margin: 0 20px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center !important;
+    font-family: "Helvetica Neue";
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    padding: 1px;
+}
+
+.goToCropButtonDiv:hover {
+    background-color: #212121;
+    color: crimson;
+}
+
+.iconGoToCrop {
+    font-size: 50px !important;
+    margin: 5px 5px 5px 6px;
 }

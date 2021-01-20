@@ -16,7 +16,6 @@ export default function CollectionsCropVisualization(props) {
 
     return (
         <>
-            <div>
                 <div className={'totFoldersCropDiv'}>Total collections in the gallery:
                     <div className='numberLengthCrop'>{allFolders.length}</div>
                 </div>
@@ -30,7 +29,6 @@ export default function CollectionsCropVisualization(props) {
                         />
                     ))}
                 </div>
-            </div>
         </>
     );
 }

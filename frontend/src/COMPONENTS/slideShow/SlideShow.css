@@ -1,10 +1,7 @@
 
 .swiperWrapper {
-    /*margin: 2em auto;*/
-    box-shadow: 0 0 5px black;
     border-radius: 5px;
-    margin: 10px auto 0 auto;
-    width: fit-content;
+    margin: 10px auto;
     overflow: hidden;
     height: 740px;
     position: relative;
@@ -34,7 +31,7 @@
     position: relative;
     color: #a9a9a9;
     top: 5px;
-    width: fit-content;
+
 }
 
 .headerIcons {
@@ -57,8 +54,8 @@
 
 
 .swiper-container {
-    width: 900px;
-    height: 550px;
+    max-width: 900px;
+    max-height: 550px;
     border: 1px solid #333333;
     margin: auto !important;
 
@@ -95,8 +92,6 @@
 .append-buttons {
     text-align: center;
     padding: 15px 0 5px 0;
-    /*-webkit-filter: drop-shadow(0 0 1px rgba(0, 0, 0, 1));*/
-
 }
 
 .append-buttons a {
@@ -114,8 +109,9 @@
 
 .imagesSwiper {
     position: relative;
-    width: 900px;
-    height: 600px;
+    max-width: 900px;
+    max-height: 600px;
+
 }
 
 .swiper-button-prev, .swiper-button-next {
@@ -138,52 +134,12 @@
     height: 7px !important;
 }
 
-.goToCropButtonWrapper {
-    position: absolute;
-    left: 50%;
-    bottom: -25px;
-    transform: translate(-50%, -50%);
 
+a:link {
+    text-decoration: none!important;
 }
 
-.goToCropButtonWrapper a:link {
-    text-decoration: none;
-}
 
-.goToCropButtonDiv {
-    width: 100px;
-    height: 90px;
-    color: crimson;
-    border-radius: 20px;
-    box-shadow: 0 0 1px 1px black;
-
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center !important;
-
-    font-family: "Helvetica Neue";
-    font-weight: 300;
-    letter-spacing: 0.1em;
-
-}
-
-.goToCropButtonDiv:hover {
-    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.7);
-}
-
-.iconGoToCrop {
-    font-size: 45px !important;
-    margin: 1px 0;
-}
-
-.e_crop {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-family: "Helvetica Neue";
-    letter-spacing: 0.1em;
-}
 
 .buttonsArrowsContainer {
     position: relative;
@@ -224,9 +180,9 @@
     margin: 15px auto 0 auto;
     font-weight: 300;
     letter-spacing: 0.05em;
-    box-shadow: 0 0 2px 2px rgba(0,0,0,0.7);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
-    width: fit-content;
+
     padding: 2px 5px;
 }
 
@@ -240,4 +196,17 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
+}
+
+.numberSlide {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 9%;
+    right: 15px;
+    z-index: 1000;
+    color: #ffc109;
+    background-color: #212121;
+    border-radius: 10px;
+    padding: 3px 15px;
+    font-size: 20px;
 }

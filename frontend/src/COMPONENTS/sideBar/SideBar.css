@@ -1,7 +1,9 @@
 .sideBarContainer {
     z-index: 999;
-    position: relative;
-    top: 3px;
+    width: 270px;
+    background-color: #212121;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 
@@ -16,12 +18,8 @@
     box-shadow: 1px 0 4px black;
     border-radius: 5px;
     overflow: hidden;
-
 }
 
-.nav-menu-items {
-    width: 100%;
-}
 
 .navbar-toggle {
     letter-spacing: 0.1em;
@@ -93,13 +91,17 @@
 
 .totalCollectionsDivInfo div {
     font-weight: 500;
-    width: fit-content;
+;
 }
 
 .buttonWrapperRight {
-    width: 220px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    left: 85%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .buttonWrapperRight label{
     width: 100%;
@@ -147,3 +149,14 @@
 .buttonWrapperRight svg path {
     fill: rgba(220, 20, 60, 0.7);
 }
+
+.buttonWrapperLeft{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 15px;
+    left: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

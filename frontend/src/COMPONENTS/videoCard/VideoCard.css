@@ -1,85 +1,89 @@
 .VideoCard {
-    width: fit-content !important;
-    height: fit-content !important;
+
     margin: 5px 7px;
     border-radius: 6px;
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 3px 1px #000000;
     -webkit-filter: drop-shadow(0 0 0 rgba(41, 41, 41, 0.77));
-    border: 1px solid rgba(220, 20, 60, 0.4);
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
+    transition: 400ms;
+    position: relative;
+    bottom: 0;
 }
 
-.VideoCard:hover{
-    box-shadow: 0 0 7px rgba(205,255,0,0.9);
+.VideoCard:hover {
+    box-shadow: 0 2px 5px 4px rgba(0, 0, 0, 0.9);
     -webkit-filter: drop-shadow(0 0 0 rgba(41, 41, 41, 0.77));
-    border: 1px solid rgba(205,255,0, 0.9);
+    bottom: 10px;
+    transition:400ms;
+}
+
+.headerVideoCard {
+    display: flex;
+    background-color: #1c1c1c;
+    border-radius: 5px 5px 0 0;
 }
 
 
-.leftVideoCard{
+.leftVideoCard {
     border-radius: 3px 3px 0 0;
     width: 490px;
     height: 275px;
 }
-.rightVideoCard{
-    width: 200px;
+
+.rightVideoCard {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     background-color: #1c1c1c;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 0 5px 5px;
 }
 
-.ads{
+.ads {
     color: crimson;
     font-size: 20px;
-    top:8px;
-    right: 25px;
     text-align: center;
-    width: fit-content;
-    height: fit-content;
-    margin: 0 10px 5px auto;
+    margin: 5px 10px 5px auto;
 }
-.adsIcon{
+
+.adsIcon {
     font-size: 19px;
 }
 
-.sliderWrapper{
 
-
-}
-.ChooseDiv{
+.ChooseDiv {
     color: #a9a9a9;
     font-family: "Helvetica Neue";
     font-weight: 300;
-    font-size: 12px;
-  margin:5px 0 10px 10px;
+    font-size: 15px;
+    margin: 10px;
     letter-spacing: 0.05em;
 }
-.ChooseDiv svg{
+
+.ChooseDiv svg {
     font-size: 20px;
 }
-.ChooseDiv svg path{
-fill: crimson;
+
+.ChooseDiv svg path {
+    fill: #ffc109;
 }
 
-.titleVideoCard{
-    color: #fff;
-    padding:5px 7px;
-    width: fit-content;
-    background-color: #2b2b2b;
-    box-shadow: 0 0 2px 1px #a9a9a9;
-    border-radius: 0 5px 5px 0;
-    font-family: "Helvetica Neue";
-    font-weight: 300;
-    letter-spacing: 0.05em;
+.titleVideoCard {
+    display: flex;
     align-items: center;
-
+    color: #a9a9a9;
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-left: 10px;
 }
+
 .titleVideoCard svg {
     font-size: 20px;
+    margin-left: 10px;
 }
+
 .titleVideoCard svg path {
     fill: crimson;
 }
@@ -104,52 +108,52 @@ fill: crimson;
 
 }
 
-.loadingClassActive{
-    font-size: 10px!important;
+.loadingClassActive {
+    font-size: 10px !important;
     margin: auto;
 }
 
-.loadingClass{
+.loadingClass {
     margin: auto;
     font-family: "Helvetica Neue";
     font-size: 10px;
 }
-.sliderDiv{
+
+.sliderDiv {
     display: flex;
     align-items: flex-end;
 }
+
 .slider_videos {
     width: 80% !important;
-    margin:  auto;
+    margin: auto;
 }
 
 .rc-slider-rail {
-    background-color: #212121!important;
+    background-color: #212121 !important;
 }
 
 .rc-slider-track {
-    background-color: crimson!important;
+    background-color: #4e4e4e !important;
+    box-shadow: 0 0 4px 3px black;
 }
 
 .rc-slider-handle {
     border: 2px solid #5f5f5f !important;
-    background-color: crimson!important;
+    background-color: crimson !important;
 }
 
 .ff_parent {
     display: flex;
     flex-direction: row;
-    width: 82%;
-    height: fit-content;
-    margin: 10px auto;
-
+    margin: 10px;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .delete {
     position: relative;
-    width: fit-content;
-    margin:  0 auto 0 10px;
+    margin: 0 7% 0 auto;
     text-align: left;
     display: flex;
     align-items: center;
@@ -163,14 +167,15 @@ fill: crimson;
 
 .checkbox {
     position: relative;
-    margin-left: 7px!important;
+    margin-left: 7px !important;
     padding: 0 !important;
 }
 
 .checkbox path {
-    fill: #fff!important;
+    fill: #ff4163 !important;
 
 }
+
 .fps {
     font-size: 12px;
     font-family: "Helvetica Neue";
@@ -191,18 +196,17 @@ fill: crimson;
 .videoCardButtonsDiv {
     display: flex;
     flex-direction: row;
-    width: 98%;
-    margin: 0 auto 5px auto;
     justify-content: space-evenly;
     align-items: center;
+    margin: 0 10px 0 0;
 }
 
 .videoCardButtonsDiv Button {
     background-color: #333333;
-    width: 90px!important;
-    height: 25px!important;
+    width: 90px !important;
+    height: 25px !important;
     font-family: "Helvetica Neue";
-    padding: 0!important;
+    padding: 0 !important;
     letter-spacing: 0.05em;
 
     font-size: 10px;
@@ -211,7 +215,7 @@ fill: crimson;
 }
 
 .buttonFragment {
-    border-radius: 5px 20px 5px 20px!important;
+    border-radius: 5px 20px 5px 20px !important;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -220,8 +224,17 @@ fill: crimson;
 }
 
 .buttonDelete {
-    border-radius: 5px 20px 5px 20px!important;
+    border-radius: 5px 20px 5px 20px !important;
     color: crimson;
 
+}
+
+.frameRateColor{
+    color: #ffc109;
+}
+
+.descriptionSegmentation{
+    font-weight: 400;
+    font-family: "Helvetica Neue";
 }
 

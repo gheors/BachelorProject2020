@@ -1,48 +1,90 @@
-import * as mongoose from "mongoose";
-import {IImageCropped, ImageCropped} from "../models/modelCroppedImage";
+import {Category, ICategory} from "../models/modelCategory";
+import {IVideo, Video} from "../models/modelVideos";
+import {Folder} from "../models/modelFolders";
 
 //get all Images controller
-export async function getImagesCropped(): Promise<IImageCropped[]> {
-    return new Promise<IImageCropped[]>((resolve, reject) => {
-        ImageCropped.find({}, (err, imagesCropped) => {
+export async function getCategories(): Promise<ICategory[]> {
+    return new Promise<ICategory[]>((resolve, reject) => {
+        Category.find({}, (err, categories) => {
             if (err) {
                 reject(err)
             } else {
-                resolve(imagesCropped)
+                resolve(categories)
             }
         })
     })
 }
 
-export async function getImageCropped(name: string): Promise<IImageCropped> {
-    return new Promise<IImageCropped>((resolve, reject) => {
-        ImageCropped.findOne({name}, (err, imageCropped) => {
+export async function getCategory(name: string): Promise<ICategory> {
+    return new Promise<ICategory>((resolve, reject) => {
+        Category.findOne({name}, (err, category) => {
             if (err) {
                 reject(err)
             } else {
-                resolve(imageCropped || undefined)
+                resolve(category || undefined)
             }
         })
     })
 }
 
-export async function getImageCroppedByFolderId(tag: string): Promise<IImageCropped> {
-    return new Promise<IImageCropped>((resolve, reject) => {
-        ImageCropped.findOne({tags: [tag]}, (err, image) => {
+export async function getCategoryByTag(tag: string): Promise<ICategory> {
+    return new Promise<ICategory>((resolve, reject) => {
+        Category.findOne({tags: tag}, (err, category) => {
             if (err) {
                 reject(err)
             } else {
-                resolve(image || undefined)
+                resolve(category || undefined)
             }
         })
     })
 }
 
 
-export async function addImageCropped(folderId: mongoose.Types.ObjectId, name: string, tags: string, width: number, height: number) {
+export async function addCategory(name: string, tags: [string]) {
     return new Promise((resolve, reject) => {
-        const newImage = new ImageCropped({name, tags, width, height})
-        newImage.save().then(resolve).catch(reject)
+        const category = new Category({name, tags})
+        category.save().then(resolve).catch(reject)
+    })
+}
+
+export async function addTagToCategory(name: string, tag: string) {
+    return new Promise<ICategory>((resolve, reject) => {
+        Category.updateOne(
+            {name},
+            {$push: {tags: tag}},
+            (err, category) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(category)
+                }
+            }
+        );
+    })
+}
+
+export async function deleteTagByCategoryName(name: string, tag: string) {
+    return new Promise((resolve, reject) => {
+        Category.updateOne({name}, {$pull: {'tags': tag}}, (err, message) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(message)
+            }
+        })
+    })
+}
+
+export async function getTagIndexInCategory(categoryName: string, tag: string): Promise<String[]> {
+    return new Promise<String[]>((resolve, reject) => {
+        Category.findOne({name: categoryName, tags: tag}, (err, category) => {
+            if (err) {
+                reject(err)
+            } else {
+
+                resolve(category?.tags || undefined)
+            }
+        })
     })
 }
 

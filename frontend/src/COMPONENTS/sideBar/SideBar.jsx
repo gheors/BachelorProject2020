@@ -10,7 +10,7 @@ import MyAccordion from "../accordionComponent/AccordionComponent";
 function SideBar(props) {
     let folders = props.allFolders;
     const [valueName, setValueName] = useState("");
-    const input = useRef(null)
+    const inputLeft = useRef(null)
 
     const updateStateValueFromInput = (value) => {
         setValueName(value);
@@ -18,7 +18,7 @@ function SideBar(props) {
 
     const body = () => {
         return (
-            <div className={"UploadElementsDiv"}>
+            <div className={"UploadElementsDiv step_2_Folders"}>
                 <InputComponent
                     label={"Add new collection"}
                     placeholder={"type name here..."}
@@ -34,14 +34,14 @@ function SideBar(props) {
                         props.selectImagesToUpload(event, valueName, 'addFolder')
                     }}
                     accept="image/*"
-                    ref={input}
+                    ref={inputLeft}
                     multiple
                 />
 
-                {valueName !== '' && <div className={"buttonWrapperRight"}>
-                    <label htmlFor="test">
-                        <button onClick={() => input.current?.click()}><FaFolderPlus/></button>
-                    </label>
+                {valueName !== '' && <div className={"buttonWrapperLeft"}>
+                    <div className={"divIconRight"} onClick={() => inputLeft.current?.click()}>
+                        <i className="fas fa-upload"/>
+                    </div>
                 </div>}
             </div>
         );
@@ -49,9 +49,7 @@ function SideBar(props) {
 
     return (
         <>
-            <div className={"sideBarContainer"}>
-                <nav className={"nav-menu2"}>
-                    <div className="nav-menu-items">
+            <div className={"sideBarContainer step_1_Folders"}>
                         <div className="navbar-toggle">
                             Collections{" "}
                             <div className={"iconWrapper"}>
@@ -75,8 +73,6 @@ function SideBar(props) {
                         </>
                         }
                         {body()}
-                    </div>
-                </nav>
             </div>
         </>
     );

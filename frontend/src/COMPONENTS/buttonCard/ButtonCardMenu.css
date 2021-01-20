@@ -25,8 +25,8 @@
 
 
 .cards_item_link:hover{
-  box-shadow: 0 0 5px rgba(205, 255, 0, 1);
-  border: 1px solid rgba(205, 255, 0, 1);
+  box-shadow: 0 0 5px #ffc109;
+  border: 1px solid #ffc109;
   /*box-shadow: 0 0 5px crimson;*/
   /*border: 1px solid crimson;*/
 }
@@ -48,7 +48,7 @@
   bottom: 45px;
   margin-left: 10px;
   padding: 6px 8px;
-  width: fit-content;
+
   font-size: 12px;
   font-weight: 700;
   color: #fff;

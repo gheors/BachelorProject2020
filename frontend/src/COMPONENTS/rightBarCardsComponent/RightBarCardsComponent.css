@@ -1,5 +1,17 @@
-.titleCroppedCards{
-color: #1e9dff;
+.rightBarCollectionsContainer {
+    /* width: 294px; */
+    /* height: 500px; */
+    width: 280px;
+    flex-grow: 1;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    /* margin: 5px 0 0 4px !important; */
+    grid-area: cards;
+    background-color: #212121;
+}
+
+.titleCroppedCards {
+    color: #1e9dff;
     height: 40px;
     display: flex;
     align-items: center;
@@ -8,17 +20,17 @@ color: #1e9dff;
     letter-spacing: 0.1em;
 }
 
-.titleCroppedCards svg{
+.titleCroppedCards svg {
     background-color: #212121;
 }
 
-.titleCroppedCards svg path{
+.titleCroppedCards svg path {
     fill: #1e9dff;
 }
 
-.croppedCardsDiv{
-    height: 380px;
-    width: 280px;
+.croppedCardsDiv {
+    /* height: 380px; */
+    width: 95%;
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -26,46 +38,50 @@ color: #1e9dff;
     margin: auto;
     /*background-color: #1c1c1c;*/
 }
-.croppedCardDiv{
+
+
+
+.croppedCardDiv {
     position: relative;
     display: flex;
     box-shadow: 0 0 1px 1px #0c0c0c;
-    width: 270px;
-    height:80px;
+    width: 95%;
+    height: 80px;
     margin: 5px auto;
     border-radius: 3px;
     background-color: #1c1c1c;
 
 
 }
-.imageCardWrapper{
+
+.imageCardWrapper {
     width: 80px;
     height: 80px;
 }
 
-.imageCardWrapper img{
+.imageCardWrapper img {
     width: inherit;
     height: inherit;
     border-radius: 3px 0 0 3px;
     object-fit: contain;
 }
 
-.tagsCroppedImageWrapper{
-    width: 240px;
+.tagsCroppedImageWrapper {
+    width: 100%;
     margin: auto;
 }
 
-.tagsCroppedImage{
+.tagsCroppedImage {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    height: 50px;
+    height: 75px;
     margin: 3px 3px;
     overflow: auto;
 }
 
 
-.deleteCurrentCardCropIcon{
+.deleteCurrentCardCropIcon {
     font-size: 15px;
     background-color: #1c1c1c;
     border-radius: 50px;
@@ -76,15 +92,16 @@ color: #1e9dff;
     bottom: 8px;
 }
 
-.deleteCurrentCardCropIcon path{
-    fill: rgba(220,20,60,0.7);
+.deleteCurrentCardCropIcon path {
+    fill: rgba(220, 20, 60, 0.7);
 }
-.deleteCurrentCardCropIcon path:hover{
+
+.deleteCurrentCardCropIcon path:hover {
     fill: crimson;
 }
 
 
-.divButtonsCroppedCard{
+.divButtonsCroppedCard {
     display: flex;
     justify-content: space-evenly;
     color: #4e4e4e;
@@ -92,7 +109,7 @@ color: #1e9dff;
 
 }
 
-.buttonRemoveCategory,.buttonUpdateCategory,.buttonVisualizeCategory{
+.buttonRemoveCategory, .buttonUpdateCategory, .buttonVisualizeCategory {
     font-family: "Helvetica Neue";
     font-weight: 400;
     font-size: 12px;
@@ -107,36 +124,40 @@ color: #1e9dff;
 }
 
 
-.buttonRemoveCategory{
+.buttonRemoveCategory {
     box-shadow: 0 0 2px 1px crimson;
     color: crimson;
     transition: 200ms ease-out;
 }
-.buttonUpdateCategory{
+
+.buttonUpdateCategory {
     box-shadow: 0 0 2px 1px #1e9dff;
     color: #1e9dff;
     transition: 200ms ease-out;
 }
-.buttonVisualizeCategory{
+
+.buttonVisualizeCategory {
     box-shadow: 0 0 2px 1px #ffc109;
     transition: 200ms ease-out;
     color: #ffc109;
 }
 
-.buttonRemoveCategory:hover{
+.buttonRemoveCategory:hover {
     box-shadow: 0 0 1px 1px crimson;
     background-color: crimson;
     transition: 200ms ease-out;
     color: whitesmoke;
 }
-.buttonUpdateCategory:hover{
+
+.buttonUpdateCategory:hover {
     box-shadow: 0 0 1px 1px #1e9dff;
-    background-color:#1e9dff;
+    background-color: #1e9dff;
     color: #1c1c1c;
 }
-.buttonVisualizeCategory:hover{
+
+.buttonVisualizeCategory:hover {
     box-shadow: 0 0 1px 1px #fdd300;
-    background-color:#ffc109;
+    background-color: #ffc109;
     color: black;
 
 }

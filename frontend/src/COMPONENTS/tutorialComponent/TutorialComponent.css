@@ -1,0 +1,10 @@
+.tutorialTourDiv{
+    max-width: 500px!important;
+}
+.tutorialTourDiv svg path{
+    fill: rgba(0,0,0,0);
+}
+
+.reactour__close svg path{
+    fill: #007aff!important;
+}

@@ -16,14 +16,7 @@ function Welcome() {
                 <h1>ARTIFICIAL ADVENTURE</h1>
 
                 <p>What are you still waiting for?</p>
-                {/*<div className={'headerFirstPage'}>*/}
-                {/*<span className={'titleFirstPage'}>*/}
-                {/*    AiTiA*/}
-                {/*</span>*/}
-                {/*    <span className={'titleFirstPageIcon'}>*/}
-                {/*    <Fa.FaCropAlt/>*/}
-                {/*</span>*/}
-                {/*</div>*/}
+
                 <div className="hero-buttons">
                     <Link to={"/dataset"}>
                         <Button

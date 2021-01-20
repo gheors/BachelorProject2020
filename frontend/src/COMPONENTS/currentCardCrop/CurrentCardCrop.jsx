@@ -14,35 +14,33 @@ export default function CurrentCardCrop(props) {
     return (
         <>
             <div className={'currentTagBuildingContainer'}>
-                <div className={"currentTagBuildingContainerTop"}>
-                    <div className={'titleBarWrapper'}>
-                        <div className={'titleCurrentCardCrop'}>
-                            Current Card <AiOutlineIdcard style={{fontSize: '30px', margin: '0 5px 0 10px'}}/>
-                        </div>
-                        <button className={'saveButtonCroppedImage'} onClick={() => props.uploadCurrentCrop()}> save
-                        </button>
+                <div className={'titleBarWrapper'}>
+                    <div className={'titleCurrentCardCrop'}>
+                        Current Card
                     </div>
-                    <div className={'imageCardBoxCrop'}>
-                        {props.croppedUrl !== undefined && <img
-                            className={"currentCard"}
-                            src={props.croppedUrl}
-                            alt={"..."}
-                        />}
-                    </div>
-                    <div className={'currentTagsDiv'}>
-                        <div className={'titleTags'}>current tags</div>
-                        <div className={'currentTags'}>
-                            {props.currentTags.map(tag => {
-                                    return <TagComponent
-                                        key={tag + 'current'}
-                                        currentTags={props.currentTags}
-                                        tag={tag}
-                                        textDivTagAdjust={'textDivTagAdjustCurrentCrop'}
-                                        onClickDelete={() => deleteCurrentTag(tag)}
-                                    />
-                                }
-                            )}
-                        </div>
+                    <button className={'saveButtonCroppedImage'} onClick={() => props.uploadCurrentCrop()}> save
+                    </button>
+                </div>
+                <div className={'imageCardBoxCrop'}>
+                    {props.croppedUrl !== undefined && <img
+                        className={"currentCard"}
+                        src={props.croppedUrl}
+                        alt={"..."}
+                    />}
+                </div>
+                <div className={'currentTagsDiv'}>
+                    <div className={'titleTags'}>current tags</div>
+                    <div className={'currentTags'}>
+                        {props.currentTags.map(tag => {
+                                return <TagComponent
+                                    key={tag + 'current'}
+                                    currentTags={props.currentTags}
+                                    tag={tag}
+                                    textDivTagAdjust={'textDivTagAdjustCurrentCrop'}
+                                    onClickDelete={() => deleteCurrentTag(tag)}
+                                />
+                            }
+                        )}
                     </div>
                 </div>
             </div>

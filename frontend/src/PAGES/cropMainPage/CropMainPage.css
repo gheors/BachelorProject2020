@@ -1,110 +1,46 @@
 .mainCropContainer {
-    position: absolute;
     width: 100%;
-    min-height: 93.6vh;
+    height: 100%;
     z-index: 10000;
+    grid-gap: 10px;
+    padding: 0 10px 10px 10px;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: stretch;
+    grid-template-areas: 
+    "leftArea       centerArea        addNew         addNew" 
+    "leftArea       centerArea        categories     categories" 
+    "leftArea       centerArea        delta    delta"
+    "leftArea       bottomContainer   delta    delta";
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-columns: 250px auto auto auto;
 }
 
-.topCrop {
-    display: flex;
-    margin: 2px auto 2px auto;
+/* TOP CROP CHILDREN CLASSES*/
 
-}
-
-.rightContainerCrop{
-    width: 664px;
-    overflow: hidden;
-}
-
-.rightTopCropContainer{
-    display: flex;
-    height: fit-content;
-    width: fit-content;
-}
-
-.rightBarCollectionsContainer {
-    width: 294px;
-    height: 440px;
+.leftDivCropPage {
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
     border-radius: 5px;
-    margin: 5px 0 0 4px  !important;
     background-color: #212121;
+    grid-area: leftArea;
 }
 
-
-.bottomCrop {
-    width: calc(100%);
-    margin: auto;
-    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.7);
-    height: 98px;
-    border-radius: 5px 5px 0 0;
-    background-color: #212121;
-}
-
-
-.imageCardBoxCrop {
-    width: 350px;
-    height: 320px !important;
-    display: flex;
-    justify-content: center;
-}
-
-.currentCard {
-    min-width: 300px;
-    min-height: 300px;
-    border-radius: 3px;
-    box-shadow: 0 1px 5px 2px #ccff00;
-    object-fit: contain;
-
-}
-
-.divButtonsSelectCategory {
-    display: flex;
-    width: 300px;
-    height: 50px;
-    margin: auto;
-    justify-content: space-between;
-
-}
-
-.buttonNewCategory {
-    width: 49%;
-    height: 40px;
-    border: none;
+.centerCropPage {
+    grid-area: centerArea;
+    height: 100%;
     border-radius: 5px;
-    font-family: "Helvetica Neue";
-    font-weight: 300;
-    font-size: 17px;
-    color: #a9a9a9;
-    background-color: #212121;
-    box-shadow: 0 0 1px 1px #a9a9a9;
-    letter-spacing: 0.1em;
 }
 
-.buttonExistingCategory {
-    width: 49%;
-    height: 40px;
-    border: none;
-    border-radius: 3px;
-    font-family: "Helvetica Neue";
-    font-weight: 300;
-    font-size: 17px;
-    color: #a9a9a9;
-    background-color: #212121;
-    box-shadow: 0 0 1px 1px #a9a9a9;
-    letter-spacing: 0.1em;
-
+.rightDivCropPage {
+    height: 100%;
+    grid-area: rightArea;
 }
 
-.newTagInputDiv {
-    width: 300px;
-    margin: auto;
+/* BOTTOM CROP CHILDREN CLASSES*/
+
+.rightTopCropContainer {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
 }
-
-
 
 
 .totalImagesCollectionDiv {
@@ -126,3 +62,210 @@
     bottom: 15px;
 }
 
+.buttonTutorialCrop {
+    position: absolute !important;
+    left: 40% !important;
+
+}
+
+.buttonTutorialCrop:hover {
+    box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.9);
+}
+
+.changeCollectionTDiv {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.changeCollectionTDiv div {
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+}
+
+.changeCollectionTDiv img {
+    max-width: 180px;
+
+    -webkit-filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 1));
+
+}
+
+.imageSelect {
+    border-radius: 5px;
+    box-shadow: 0 0 3px 2px black;
+}
+
+.arrowsCrop {
+    width: 75px !important;
+    margin-left: 15px;
+}
+
+
+.freeCropT{
+    max-width: 300px!important;
+    filter: none!important;
+    position: absolute;
+    left: 20px;
+    -webkit-filter: drop-shadow(0 0 9px rgba(0, 0, 0, 1)) !important;
+
+}
+
+.squareCropT{
+    max-width: 100px!important;
+    position: relative;
+    bottom: 20px;
+    right: 17px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 2px black;
+}
+
+.fixeDHeight{
+    min-height: 200px!important;
+}
+.ulCategory{
+    display: flex;
+}
+.ulCategory li{
+    margin-top: 10px;
+    margin-left: 25px;
+    font-family: "Helvetica Neue";
+    font-weight: bold;
+    list-style-type: none;
+}
+
+.divStepsCategory{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.olCategory li{
+    margin-top: 10px;
+    margin-left: 30px;
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+}
+.categoryRoles {
+    position: absolute;
+    max-width: 150px;
+    max-height: 150px;
+    box-shadow: 0 0 3px 2px black;
+    border-radius: 10px;
+    right: 45px;
+    bottom: 45px;
+}
+.imageRole{
+    max-width: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+    margin-top: 5px;
+
+}
+
+.boldCut{
+    font-weight: bold;
+}
+
+.italicText{
+    font-family: "Helvetica Neue";
+    font-style: italic;
+    font-weight: 400;
+    margin:5px 0 20px 25px;
+}
+
+.marginAddTagsTutorial{
+    /*margin-left: 10px;*/
+    border-bottom: 1px solid crimson;
+}
+
+.dataSetTutorial{
+    background-color: rgb(38, 38, 38);
+    box-shadow: 0 0 3px 2px rgba(0,0,0,0.8);
+    padding: 10px 15px 15px 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.dataSetTutorialImages{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.dataSetTutorialImages img{
+    width: 70px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+}
+.dataSetTutorialImages div{
+    font-weight: 500;
+    font-family: "Helvetica Neue";
+    font-size: 12px;
+    position: relative;
+    margin: 5px 0 2px 0;
+    color: #de535f;
+}
+
+.titleTourDataSet{
+    color: rgb(255, 157, 9);
+    font-size: 20px;
+}
+.totalImageTut{
+    margin-left: 10px;
+
+}
+
+.categoryActiveTour{
+    max-width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+}
+.tourTagging{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.currentCardTour{
+    max-width: 100px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+}
+.posTagging{
+    position: relative;
+    left: -5px;
+    top: 50px !important;
+}
+
+.tourClickTagText{
+    font-weight: 400;
+    font-family: "Helvetica Neue";
+}
+
+.step_7_Crop{
+    grid-area: delta;
+    display: flex;
+}
+
+.currentCardTour2{
+    max-width: 140px!important;
+    margin-left: 25px;
+    position: relative;
+    bottom: 20px;
+}
+
+.clickCards{
+    max-width: 100px;
+}
+.showTags{
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+    margin-top: 20px;
+}
+
+.changeColl {
+    max-width: 220px;
+    max-height: 45px;
+    position: relative;
+    top: 5px;
+}

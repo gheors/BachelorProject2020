@@ -36,7 +36,7 @@ class Fragm():
         hasFrames, image = vidcap.read()
         if hasFrames:
             count = str(count)
-            count = count.zfill(4)
+#             count = count.zfill(4)
             filename = count + ".jpg"
             cv2.imwrite(output_path + '/' + filename, image)
         return hasFrames

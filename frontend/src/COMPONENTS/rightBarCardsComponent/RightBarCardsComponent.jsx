@@ -14,7 +14,7 @@ export default function RightBarCardsComponent(props) {
 
     return (
         <>
-            <div className={'rightBarCollectionsContainer'}>
+            <div className={'rightBarCollectionsContainer '}>
                 <div className={'titleCroppedCards'}>
                     Cropped Cards <BsPersonSquare style={{margin: '0 0 0 15px'}}/>
                 </div>
@@ -47,9 +47,6 @@ export default function RightBarCardsComponent(props) {
                                                 onClickDelete={() => props.deleteTagFromCard(croppedCard.name, tag)}/>
                                         }
                                     })}
-                                </div>
-                                <div className={'divButtonsCroppedCard'}>
-                                    <div className={'buttonUpdateCategory'}>update</div>
                                 </div>
                             </div>
                         </div>

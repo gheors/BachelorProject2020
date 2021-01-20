@@ -5,6 +5,8 @@ import CroppedSample from "../croppperSample/CropperSample";
 import {IoIosArrowDropleftCircle} from "react-icons/io";
 import {IoIosArrowDroprightCircle} from "react-icons/io";
 import {BsPersonSquare} from "react-icons/bs";
+import {GrLayer} from "react-icons/gr";
+import {Badge} from "@material-ui/core";
 
 export default function CurrentImageToCrop(props) {
     let index = props.imagesArray.indexOf(props.currentImage) + 1
@@ -23,45 +25,79 @@ export default function CurrentImageToCrop(props) {
 
     return (
         <>
-            <div className={'displayCurrentImageContainer'}>
-                {
-                    <div className={'titleCurrentImage'}>
-                        <div className={'bastoneLeft'}>Current Image</div>
-                        <div className={'bottomTitleCurrentImage'}>
-                            <div className={'cardsLabelCurrentImage'}>
-                                <div> 2 cards</div>
-                            </div>
-                            <div className={'counterImages'}>
-                                <div>{index}/{props.imagesArray.length}</div>
-                            </div>
-                            <div className={'usedImage'}>
-                                <div>{props.currentImage.used ?
-                                    <BsPersonSquare className={'activeUsed'}/>
-                                    :
-                                    <BsPersonSquare className={'inActiveUsed'}/>}</div>
+            <div className={'centerCropPage step_8_Crop'}>
+                <div className={'step_2_Crop'}>
+                    {
+
+                        <div className={'titleCurrentImage'}>
+                            <div className={'bastoneLeft'}>DataSets Building</div>
+                            <div className={'bottomTitleCurrentImage'}>
+                                <div className={'cardsLabelCurrentImage'}>
+                                    <div className={'currentImageCrop'}>Current Image</div>
+                                </div>
+                                <div className={'counterImages'}>
+                                    <div>{index}/{props.imagesArray.length}</div>
+                                </div>
+                                <div className={'usedImage'}>
+                                    <div>{props.currentImage.used ?
+                                        <><Badge
+                                            badgeContent={<div
+                                                className={'totalCardsInfo'}>{props.croppedCards.length}</div>}
+                                            anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'right',
+                                            }}><BsPersonSquare className={'activeUsed'}/></Badge> </>
+                                        :
+                                        <BsPersonSquare className={'inActiveUsed'}/>}</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                }
-                {<CroppedSample
-                    setCroppedUrl={props.setCroppedUrl}
-                    setCroppedImage={props.setCroppedImage}
-                    setCoordinates={props.setCoordinates}
-                    croppedCards={props.croppedCards}
-                    showCards={showCards}
-                    squareCrop={squareCrop}
-                    src={src}/>
-                }
-                <div className={'settingsCurrentImageDiv'}>
+                    }
+                    {<CroppedSample
+                        setCroppedUrl={props.setCroppedUrl}
+                        setCroppedImage={props.setCroppedImage}
+                        setCoordinates={props.setCoordinates}
+                        croppedCards={props.croppedCards}
+                        showCards={showCards}
+                        squareCrop={squareCrop}
+                        src={src}/>
+                    }
+
+                </div>
+
+                <div className={'settingsCurrentImageDiv step_3_Crop'}>
                     <div className={'leftArrowCurrent'}><IoIosArrowDropleftCircle/></div>
-                    <div className={'centralSettings'}>
-                        <div onClick={() => setSquareCrop(!squareCrop)}
-                             className={'cropModeButton'}>{squareCrop ? 'crop 1/1' : 'free crop'}</div>
+                    <div className={'centralSettings '}>
+
+                            {showCards ? <div className={'cropModeButtonDisabled step_4_Crop'}>
+                                    <i className="fas fa-lock"/>
+                                </div>
+                                :
+                                <div onClick={() => setSquareCrop(!squareCrop)}
+                                     className={'cropModeButton step_4_Crop'}>
+                                    {squareCrop ? <>
+                                            crop <i className="far fa-square"/> </>
+                                        :
+                                        'free crop'}
+                                </div>}
+
+
+                        <div className={'AitiaCrop'}>AiTiA</div>
                         <div onClick={() => setShowCards(!showCards)}
-                             style={showCards ? {backgroundColor: 'green'} : {backgroundColor: 'white'}}
-                             className={'deleteButtonCurrent'}>cards
+                             style={showCards ?
+                                 {backgroundColor: '#333333', fontWeight: '500'}
+                                 :
+                                 {
+                                     backgroundColor: '#212121',
+                                     color: '#a9a9a9',
+                                 }}
+                             className={'cardsButtonDiv'}>{
+                            showCards ?
+                                <> #<i className="fas fa-clone cardsActive"/></>
+                                :
+                                <> cards <i className="fas fa-eye"/></>}
                         </div>
-                        <div className={'deleteButtonCurrent'}>delete</div>
+                        {/*<div className={'deleteButtonCurrent'}>delete</div>*/}
 
                     </div>
                     <div className={'rightArrowCurrent'}><IoIosArrowDroprightCircle/></div>

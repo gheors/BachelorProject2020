@@ -2,18 +2,20 @@ import mongoose from 'mongoose';
 
 
 // typescript, extends mongoose.. because Video will have an ID that we wanna access
-export interface  IImage extends  mongoose.Document{
-    folderId: mongoose.Types.ObjectId,
+export interface  IImageCropped extends  mongoose.Document{
     name: string,
-    width:number,
-    height:number,
+    tags:[string],
+    coordinates: [number],
+    fullImageId: mongoose.Types.ObjectId,
+
 }
 // mongo
-const ImageSchema = new mongoose.Schema({
-    folderId: {type: mongoose.Schema.Types.ObjectId, ref: 'folders'},
+const ImageCroppedSchema = new mongoose.Schema({
     name: String,
-    width: Number,
-    height: Number,
+    tags: [String],
+    coordinates: [Number],
+    fullImageId: {type: mongoose.Schema.Types.ObjectId, ref: 'images'},
+
 })
 
-export const Image = mongoose.model<IImage>("images",ImageSchema);
+export const ImageCropped = mongoose.model<IImageCropped>("croppedCards",ImageCroppedSchema);

@@ -1,7 +1,10 @@
 .colorLabelCrimson{
-    background-color: crimson;
+    background-color: #ffc109;
+    width: fit-content;
+    color: #212121!important;
 }
 
 .colorLabelGreen{
     background-color: #51b101;
+    width: fit-content;
 }

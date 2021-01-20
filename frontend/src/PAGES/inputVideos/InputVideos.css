@@ -2,9 +2,6 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    background: #a0a0a0;
-
-
 }
 
 .allVideosWrapper {
@@ -18,7 +15,7 @@
     width: 90%;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 55%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: row;
@@ -27,7 +24,7 @@
     /*background-color: rgba(0, 0, 0, 0.1);*/
     border-radius: 5px;
     overflow: auto;
-    height: fit-content;
+
     padding: 30px;
     margin: 20px auto 0 auto;
 
@@ -40,19 +37,17 @@
 .backArrowDiv {
     position: absolute;
     left: 7.5%;
-    bottom: 2%;
+    bottom: -0.5%;
     transform: translate(-50%, -50%);
-    width: fit-content;
-    border-radius: 15px;
-    box-shadow: 0 0 5px 2px #333333;
-    background-color: rgba(0,0,0,0.2);
+    font-size: 70px;
+    transition: 100ms;
+    color: #323232;
 }
 
 
 .backArrowDiv :hover{
-    box-shadow: 0 0 5px 2px #212121;
-    background-color: rgba(0,0,0,0.2);
-    border-radius: 15px;
+    color: crimson;
+    transition: 100ms;
 }
 
 .backArrowDiv svg{
@@ -80,24 +75,28 @@
 
 .goFolderImage{
     position: absolute;
-    right: 0;
+    right: 3%;
+    color: #323232;
     bottom: -10px;
     transform: translate(-50%, -50%);
-    width: fit-content;
+    font-size: 70px;
+    filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.9));
+    transition: 200ms;
+
 }
 
-.goFolderImage img{
-    width: 120px;
-
+.goFolderImage:hover{
+    color: crimson;
+    transition: 200ms;
 }
 
 
 .onVideoDiv {
     position: absolute;
-    left: 50%;
-    top: 15%;
+    left: 13%;
+    top: 12%;
     transform: translate(-50%, -50%);
-    width: 100px;
+    width: 56px;
 }
 
 
@@ -132,4 +131,91 @@
 }
 .dragPicDiv img{
     width: 70px;
+}
+
+.step_1_Video_ImageDiv {
+    position: relative;
+    bottom: 15px;
+}
+.step_1_Video_ImageDiv img{
+    width: 350px;
+    height: 90px;
+    filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.9));
+}
+.marginAdjustVideo{
+    margin-bottom: 5px!important;
+}
+
+.uploadHint{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    right: -52px;
+    top: 16%;
+    width: 100px!important;
+    height: 87px!important;
+}
+
+.giphy-embed{
+    max-width: 110px;
+    max-height: 110px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px black;
+    margin-left: 10px;
+    position: relative;
+    top:7px
+}
+
+.gifDivText{
+    display: flex;
+}
+
+.textDiv{
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+}
+.fa-long-arrow-alt-right{
+    font-size: 30px;
+    margin-left: 10px;
+    position: absolute;
+    left: 43%;
+}
+.arrow2Fragmentation{
+    bottom: 65px;
+    left: 37%;
+
+}
+
+.extractTutorialDiv{
+    margin-top: 15px;
+    position: absolute;
+    left: 10%;
+    bottom: 15%;
+}
+.extractTutorialDiv img{
+    width: 100px;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.9));
+}
+
+.schemaFragmentation{
+    position: relative;
+    top: 5px;
+    left: 23px;
+}
+.schemaFragmentation img{
+    width: 200px;
+    height: 150px;
+
+}
+.videoCover{
+    position: absolute;
+    right: 25px;
+    top: 40px;
+    height: 100px;
+}
+
+.goToFolders img{
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px black;
+    margin-top: 20px;
 }

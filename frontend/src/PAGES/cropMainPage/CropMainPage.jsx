@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import "./CropMainPage.css";
 import ParticlesBackground from "../../COMPONENTS/particels/ParticelsBackground";
 import "../../COMPONENTS/buttonCard/ButtonCardMenu.css";
-import {Link} from "react-router-dom";
 import Axios from "axios";
 import CollectionsCropVisualization from "../../COMPONENTS/collectionsCropVisualization/CollectionsCropVisualization";
 import LeftBarCropPage from "../../COMPONENTS/leftBarCropPage/LeftBarCropPage";
@@ -10,51 +9,51 @@ import CurrentImageToCrop from "../../COMPONENTS/currentImageToCrop/CurrentImage
 import CurrentCardCrop from "../../COMPONENTS/currentCardCrop/CurrentCardCrop";
 import AddSelectCategoryComponent from "../../COMPONENTS/addSelectCategoryComponent/addSelectCategoryComponent";
 import RightBarCardsComponent from "../../COMPONENTS/rightBarCardsComponent/RightBarCardsComponent";
+import TutorialComponent from "../../COMPONENTS/tutorialComponent/TutorialComponent";
+import {tutorialSteps} from "./tutorialStepsCropMainPage.jsx";
 
 export default function CropMainPage(props) {
-    const [currentFolder, setCurrentFolder] = useState('')
-    const [images, setImages] = useState([])
-    const [currentImage, setCurrentImage] = useState(undefined)
-    const [categories, setCategories] = useState([])
+    const [currentFolder, setCurrentFolder] = useState("");
+    const [images, setImages] = useState([]);
+    const [currentImage, setCurrentImage] = useState(undefined);
+    const [categories, setCategories] = useState([]);
 
-    const [croppedImage, setCroppedImage] = useState([])
-    const [croppedUrl, setCroppedUrl] = useState(undefined)
-    const [currentTags, setCurrentTags] = useState([])
+    const [croppedImage, setCroppedImage] = useState([]);
+    const [croppedUrl, setCroppedUrl] = useState(undefined);
+    const [currentTags, setCurrentTags] = useState([]);
 
-    const [croppedCards, setCroppedCards] = useState([])
-    const [coordinates, setCoordinates] = useState([])
+    const [croppedCards, setCroppedCards] = useState([]);
+    const [coordinates, setCoordinates] = useState([]);
 
+    const [isTourOpen, setIsTourOpen] = useState(false);
 
     useEffect(() => {
         if (props !== undefined) {
-            setCurrentFolder(props.currentFolder)
-            setImages(props.imagesArray)
+            setCurrentFolder(props.currentFolder);
+            setImages(props.imagesArray);
             if (currentImage === undefined) {
-                setCurrentImage(props.imagesArray[0])
+                setCurrentImage(props.imagesArray[0]);
             }
         }
     }, [props]);
 
-
     useEffect(() => {
-        getCategories()
+        getCategories();
     }, []);
 
     useEffect(() => {
         if (currentImage !== undefined) {
-            getCroppedCardsSingleImage(currentImage._id)
+            getCroppedCardsSingleImage(currentImage._id);
         }
-
     }, [currentImage]);
 
-
     const setCurrentFolderZero = (folder) => {
-        Axios.get(`http://localhost:3000/api/images/folder/${folder._id}`)
+        Axios.get(`/api/images/folder/${folder._id}`)
             .then((res) => {
-                props.setCurrentFolder(folder.name)
-                props.setImagesArray(res.data)
-                setImages(res.data)
-                setCurrentFolder(folder.name)
+                props.setCurrentFolder(folder.name);
+                props.setImagesArray(res.data);
+                setImages(res.data);
+                setCurrentFolder(folder.name);
             })
             .catch((err) => {
                 console.log(err);
@@ -62,193 +61,199 @@ export default function CropMainPage(props) {
     };
 
     const addCategory = (name, tag) => {
-        Axios.post(`http://localhost:3000/api/categories/addCategory/${name}/${tag}`)
-            .then(res => {
-                setCategories([...categories, res.data].reverse())
+        Axios.post(`/api/categories/addCategory/${name}/${tag}`)
+            .then((res) => {
+                setCategories([...categories, res.data].reverse());
             })
-            .catch(err => console.log(err));
-    }
+            .catch((err) => console.log(err));
+    };
 
     const addTagToCategory = (name, tag) => {
-        Axios.post(`http://localhost:3000/api/categories/addTagToCategory/${name}/${tag}`)
-            .then(res => {
-                let newCategories = categories.map(category => {
+        Axios.post(`/api/categories/addTagToCategory/${name}/${tag}`)
+            .then((res) => {
+                let newCategories = categories.map((category) => {
                     if (category.name === name) {
-                        return res.data
+                        return res.data;
                     } else {
-                        return category
+                        return category;
                     }
-                })
-                setCategories(newCategories)
+                });
+                setCategories(newCategories);
             })
-            .catch(err => console.log(err));
-    }
+            .catch((err) => console.log(err));
+    };
 
     const uploadCurrentCrop = () => {
         if (currentTags.length > 0) {
-            const randomName = 'cropped_' + Math.random().toString(36).substring(7) + '.jpg';
+            const randomName =
+                "cropped_" + Math.random().toString(36).substring(7) + ".jpg";
 
             const data = new FormData();
 
-            data.append('file', croppedImage)
-            data.append('name', randomName)
-            data.append('fullImageName', currentImage.name)
-            data.append('fullImageId', currentImage._id)
-            data.append('folderId', currentImage.folderId)
-            data.append('tags', JSON.stringify(currentTags))
-            data.append('coordinates', JSON.stringify(coordinates))
+            data.append("file", croppedImage);
+            data.append("name", randomName);
+            data.append("fullImageName", currentImage.name);
+            data.append("fullImageId", currentImage._id);
+            data.append("folderId", currentImage.folderId);
+            data.append("tags", JSON.stringify(currentTags));
+            data.append("coordinates", JSON.stringify(coordinates));
             Axios.post(`/api/croppedCards/addCroppedImage`, data)
-                .then(res => {
-                    setCroppedCards([res.data, ...croppedCards])
+                .then((res) => {
+                    setCroppedCards([res.data, ...croppedCards]);
                     const newCurrent = {
                         name: currentImage.name,
                         folderId: currentImage.folderId,
                         width: currentImage.width,
                         height: currentImage.height,
                         used: true,
-                        _id: currentImage._id
-                    }
-                    setCurrentImage(newCurrent)
-                    const newImages = images.map(image => {
+                        _id: currentImage._id,
+                    };
+                    setCurrentImage(newCurrent);
+                    const newImages = images.map((image) => {
                         if (image.name === newCurrent.name) {
-                            return newCurrent
+                            return newCurrent;
                         } else {
-                            return image
+                            return image;
                         }
-                    })
-                    props.setImagesArray(newImages)
-                    setImages(newImages)
+                    });
+                    props.setImagesArray(newImages);
+                    setImages(newImages);
                 })
-                .catch(err => console.log(err));
+                .catch((err) => console.log(err));
         }
-        setCurrentTags([])
-    }
-
+        setCurrentTags([]);
+    };
 
     const getCategories = () => {
-        Axios.get(`http://localhost:3000/api/categories/`)
-            .then(res => {
-                setCategories(res.data)
+        Axios.get(`/api/categories/`)
+            .then((res) => {
+                setCategories(res.data);
             })
-            .catch(err => console.log(err));
-    }
+            .catch((err) => console.log(err));
+    };
 
     const getCroppedCards = () => {
-        Axios.get(`http://localhost:3000/api/croppedCards/`)
-            .then(res => {
-                setCroppedCards(res.data.reverse())
+        Axios.get(`/api/croppedCards/`)
+            .then((res) => {
+                setCroppedCards(res.data.reverse());
             })
-            .catch(err => console.log(err));
-    }
+            .catch((err) => console.log(err));
+    };
 
     const getCroppedCardsSingleImage = (fullImageId) => {
         if (fullImageId !== undefined) {
-            Axios.get(`http://localhost:3000/api/croppedCards/${fullImageId}`)
-                .then(res => {
-                    setCroppedCards(res.data.reverse())
+            Axios.get(`/api/croppedCards/${fullImageId}`)
+                .then((res) => {
+                    setCroppedCards(res.data.reverse());
                 })
-                .catch(err => console.log(err));
+                .catch((err) => console.log(err));
         }
-
-    }
+    };
 
     const deleteTagByCategoryName = (name, tag) => {
-        const newtag = tag.split('#')[1]
-        Axios.delete(`http://localhost:3000/api/categories/${name}/${newtag}`).then(res => {
-            let newCategories = categories.map(category => {
-                if (category.name === name) {
-                    const newTags = []
-                    category.tags.forEach(tg => {
-                        if (tg !== tag) {
-                            newTags.push(tg)
-                        }
-                    })
-                    return {
-                        name: name,
-                        tags: newTags,
+        const newtag = tag.split("#")[1];
+        Axios.delete(`/api/categories/${name}/${newtag}`)
+            .then((res) => {
+                let newCategories = categories.map((category) => {
+                    if (category.name === name) {
+                        const newTags = [];
+                        category.tags.forEach((tg) => {
+                            if (tg !== tag) {
+                                newTags.push(tg);
+                            }
+                        });
+                        return {
+                            name: name,
+                            tags: newTags,
+                        };
+                    } else {
+                        return category;
                     }
-                } else {
-                    return category
-                }
+                });
+                setCategories(newCategories);
             })
-            setCategories(newCategories)
-        })
-            .catch(err => console.log(err));
-    }
+            .catch((err) => console.log(err));
+    };
 
     const deleteTagFromCard = (name, tag) => {
-        const newtag = tag.split('#')[1]
-        Axios.delete(`http://localhost:3000/api/croppedCards/${name}/${newtag}`).then(res => {
-            let newCroppedCards = croppedCards.map(croppedCard => {
-                if (croppedCard.name === name) {
-                    const newTags = croppedCard.tags.filter(tg => tg !== tag)
-                    if (newTags.length === 0) {
-                        removeCroppedCard(name, currentImage.folderId, currentImage.name)
+        const newtag = tag.split("#")[1];
+        Axios.delete(`/api/croppedCards/${name}/${newtag}`)
+            .then((res) => {
+                let newCroppedCards = croppedCards.map((croppedCard) => {
+                    if (croppedCard.name === name) {
+                        const newTags = croppedCard.tags.filter((tg) => tg !== tag);
+                        if (newTags.length === 0) {
+                            removeCroppedCard(name, currentImage.folderId, currentImage.name);
+                        }
+                        return {
+                            name: name,
+                            tags: newTags,
+                        };
+                    } else {
+                        return croppedCard;
                     }
-                    return {
-                        name: name,
-                        tags: newTags,
-                    }
-                } else {
-                    return croppedCard
-                }
+                });
+                setCroppedCards(newCroppedCards);
             })
-            setCroppedCards(newCroppedCards)
-        })
-            .catch(err => console.log(err));
-    }
+            .catch((err) => console.log(err));
+    };
     const removeCroppedCard = (name, folderId, fullImageName) => {
-        Axios.delete(`http://localhost:3000/api/croppedCards/${name}/${folderId}/${fullImageName}`).then(res => {
-            console.log(res.data)
-            let newCroppedCards = []
-            croppedCards.forEach(croppedCard => {
-                if (croppedCard.name !== name) {
-                    newCroppedCards.push(croppedCard)
-                }
-            })
-            const newImages = props.imagesArray.map(image => {
-                if (image.name === fullImageName) {
-                    setCurrentImage({
-                        _id: image._id,
-                        folderId: image.folderId,
-                        name: image.name,
-                        width: image.width,
-                        height: image.height,
-                        used: newCroppedCards.length > 0
-                    })
-                    return {
-                        _id: image._id,
-                        folderId: image.folderId,
-                        name: image.name,
-                        width: image.width,
-                        height: image.height,
-                        used: newCroppedCards.length > 0
+        Axios.delete(`/api/croppedCards/${name}/${folderId}/${fullImageName}`)
+            .then((res) => {
+                console.log(res.data);
+                let newCroppedCards = [];
+                croppedCards.forEach((croppedCard) => {
+                    if (croppedCard.name !== name) {
+                        newCroppedCards.push(croppedCard);
                     }
-                } else return image
+                });
+                const newImages = props.imagesArray.map((image) => {
+                    if (image.name === fullImageName) {
+                        setCurrentImage({
+                            _id: image._id,
+                            folderId: image.folderId,
+                            name: image.name,
+                            width: image.width,
+                            height: image.height,
+                            used: newCroppedCards.length > 0,
+                        });
+                        return {
+                            _id: image._id,
+                            folderId: image.folderId,
+                            name: image.name,
+                            width: image.width,
+                            height: image.height,
+                            used: newCroppedCards.length > 0,
+                        };
+                    } else return image;
+                });
+                setCroppedCards(newCroppedCards);
+                props.setImagesArray(newImages);
             })
-            setCroppedCards(newCroppedCards)
-            props.setImagesArray(newImages)
-
-        })
-            .catch(err => console.log(err));
-    }
-
+            .catch((err) => console.log(err));
+    };
 
     return (
-        <>
+        <div style={{flexGrow: 1}}>
             <ParticlesBackground/>
+            <TutorialComponent
+                setIsTourOpen={setIsTourOpen}
+                isTourOpen={isTourOpen}
+                tutorialSteps={tutorialSteps}
+            />
 
-            {images.length === 0 && <CollectionsCropVisualization currentFolder={props.currentFolder}
-                                                                  imagesArray={props.imagesArray}
-                                                                  setCurrentFolder={props.setCurrentFolder}
-                                                                  setImagesArray={props.setImagesArray}
-                                                                  setCurrentFolderZero={setCurrentFolderZero}
-            />}
+            {images.length === 0 && (
+                <CollectionsCropVisualization
+                    currentFolder={props.currentFolder}
+                    imagesArray={props.imagesArray}
+                    setCurrentFolder={props.setCurrentFolder}
+                    setImagesArray={props.setImagesArray}
+                    setCurrentFolderZero={setCurrentFolderZero}
+                />
+            )}
 
-
-            {images.length > 0 && <div className={'mainCropContainer'}>
-                <div className={'topCrop'}>
-
+            {images.length > 0 && (
+                <div className={"mainCropContainer"}>
                     <LeftBarCropPage
                         currentFolder={props.currentFolder}
                         currentImage={currentImage}
@@ -257,6 +262,8 @@ export default function CropMainPage(props) {
                         setCurrentFolderProps={props.setCurrentFolder}
                         setImagesArrayProps={props.setImagesArray}
                         setCurrentImage={setCurrentImage}
+                        setIsTourOpen={setIsTourOpen}
+                        isTourOpen={isTourOpen}
                     />
 
                     <CurrentImageToCrop
@@ -270,63 +277,67 @@ export default function CropMainPage(props) {
                         setCoordinates={setCoordinates}
                     />
 
-                    <div className={'rightContainerCrop'}>
-                        <div className={'rightTopCropContainer'}>
-                            <CurrentCardCrop
-                                croppedUrl={croppedUrl}
-                                currentTags={currentTags}
-                                setCurrentTags={setCurrentTags}
-                                uploadCurrentCrop={uploadCurrentCrop}
-                            />
-                            <RightBarCardsComponent
-                                deleteTagFromCard={deleteTagFromCard}
-                                croppedCards={croppedCards}
-                                removeCroppedCard={removeCroppedCard}
-                                folderId={currentImage.folderId}
-                                fullImageName={currentImage.name}
+                    <AddSelectCategoryComponent
+                        addCategory={addCategory}
+                        addTagToCategory={addTagToCategory}
+                        categories={categories}
+                        setCurrentTags={setCurrentTags}
+                        currentTags={currentTags}
+                        deleteTagByCategoryName={deleteTagByCategoryName}
+                    />
 
-                            />
-                        </div>
-                        <AddSelectCategoryComponent
-                            addCategory={addCategory}
-                            addTagToCategory={addTagToCategory}
-                            categories={categories}
-                            setCurrentTags={setCurrentTags}
+                    <div className={'step_7_Crop'}>
+                        <CurrentCardCrop
+                            croppedUrl={croppedUrl}
                             currentTags={currentTags}
-                            deleteTagByCategoryName={deleteTagByCategoryName}
+                            setCurrentTags={setCurrentTags}
+                            uploadCurrentCrop={uploadCurrentCrop}
+                        />
+                        <RightBarCardsComponent
+                            deleteTagFromCard={deleteTagFromCard}
+                            croppedCards={croppedCards}
+                            removeCroppedCard={removeCroppedCard}
+                            folderId={currentImage.folderId}
+                            fullImageName={currentImage.name}
                         />
                     </div>
 
-                </div>
-                <div className={'bottomCrop'}>
-                    {/*<Link to={"/foldersInterface"}>*/}
-                    {/*    <div className={"backArrowDiv"}>*/}
-                    {/*        <img*/}
-                    {/*            className={"backArrow"}*/}
-                    {/*            src={"images/arrow.png"}*/}
-                    {/*            alt={"..."}*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*</Link>*/}
-                    {/*<Link to={"/videosInterface"}>*/}
-                    {/*    <div className={"goToVideosDiv"}>*/}
-                    {/*        <img*/}
-                    {/*            className={"goToVideos"}*/}
-                    {/*            src={"images/videos2.png"}*/}
-                    {/*            alt={"..."}*/}
-                    {/*        />*/}
-                    {/*    </div>*/}
-                    {/*</Link>*/}
-                    {/*<div className={"onVideoDiv"}>*/}
-                    {/*    <img*/}
-                    {/*        className={"onCollection"}*/}
-                    {/*        src={"images/image2t.png"}*/}
-                    {/*        alt={"..."}*/}
-                    {/*    />*/}
+                    <div
+                        style={{gridArea: "bottomContainer", backgroundColor: "#212121"}}
+                    />
+                    {/* </div> */}
+                    {/* </div> */}
+
+                    {/*<div className={'bottomCrop'}>*/}
+
+                    {/*    /!*<Link to={"/foldersInterface"}>*!/*/}
+                    {/*    /!*    <div className={"backArrowDiv"}>*!/*/}
+                    {/*    /!*        <img*!/*/}
+                    {/*    /!*            className={"backArrow"}*!/*/}
+                    {/*    /!*            src={"images/arrow.png"}*!/*/}
+                    {/*    /!*            alt={"..."}*!/*/}
+                    {/*    /!*        />*!/*/}
+                    {/*    /!*    </div>*!/*/}
+                    {/*    /!*</Link>*!/*/}
+                    {/*    /!*<Link to={"/videosInterface"}>*!/*/}
+                    {/*    /!*    <div className={"goToVideosDiv"}>*!/*/}
+                    {/*    /!*        <img*!/*/}
+                    {/*    /!*            className={"goToVideos"}*!/*/}
+                    {/*    /!*            src={"images/videos2.png"}*!/*/}
+                    {/*    /!*            alt={"..."}*!/*/}
+                    {/*    /!*        />*!/*/}
+                    {/*    /!*    </div>*!/*/}
+                    {/*    /!*</Link>*!/*/}
+                    {/*    /!*<div className={"onVideoDiv"}>*!/*/}
+                    {/*    /!*    <img*!/*/}
+                    {/*    /!*        className={"onCollection"}*!/*/}
+                    {/*    /!*        src={"images/image2t.png"}*!/*/}
+                    {/*    /!*        alt={"..."}*!/*/}
+                    {/*    /!*    />*!/*/}
+                    {/*    /!*</div>*!/*/}
                     {/*</div>*/}
                 </div>
-            </div>
-            }
-        </>
+            )}
+        </div>
     );
 }

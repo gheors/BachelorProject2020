@@ -74,9 +74,10 @@ function SlideShowSwiper(props) {
                     // onSlideChange={(event) => console.log(event)}
                     onClick={(event) => setSwiperKeyboard(event.keyboard)}
                 >
-                    {props.images.map((image) => {
+                    {props.images.map((image,index) => {
                         return (
                             <SwiperSlide key={image._id}>
+                                <div className={'numberSlide'}>{index+1} </div>
                                 <img
                                     className="imagesSwiper"
                                     src={`./frames/${folderToDisplay}/${image.name}`}
@@ -91,7 +92,6 @@ function SlideShowSwiper(props) {
                 <Swiper
                     {...params}
                     onSwiper={(event) => getSwiper(event)}
-                    // onSlideChange={(event) => console.log(event)}
                     onClick={(event) => setSwiperKeyboard(event.keyboard)}
                 >
                     <SwiperSlide>
@@ -99,24 +99,6 @@ function SlideShowSwiper(props) {
                     </SwiperSlide>
                 </Swiper>
             )}
-            {props.images.length > 0 &&
-            <div className={'goToCropButtonWrapper'}>
-                <Link to={'./cropMainPage'}>
-                    <div className={'goToCropButtonDiv'}>
-                        <i className="fas fa-crop-alt iconGoToCrop"/>
-                        <div className={'e_crop'}>E-Crop</div>
-                    </div>
-                </Link>
-            </div>
-            }
-            {props.images.length > 0 && <div className={'buttonsArrowsContainer'}>
-                <div className={'arrowsInfo'}>Keyboard enabled</div>
-                <div className={'buttonsArrowDiv'}>
-                    <div><VscTriangleLeft/></div>
-                    <div><VscTriangleRight/></div>
-                </div>
-            </div>}
-
         </div>
     );
 }

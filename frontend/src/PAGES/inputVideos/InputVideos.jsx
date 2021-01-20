@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import './InputVideos.css'
 import '../../App.css'
 import UploadVideosComponent from '../../COMPONENTS/videoUploads/UploadMultiplevideos'
@@ -7,6 +7,8 @@ import VideoCard from "../../COMPONENTS/videoCard/VideoCard";
 import ParticlesBackground from "../../COMPONENTS/particels/ParticelsBackground";
 import {Link} from "react-router-dom";
 import {BsArrowReturnLeft} from "react-icons/bs";
+import TutorialComponent from "../../COMPONENTS/tutorialComponent/TutorialComponent";
+import {tutorialSteps} from "./tutorial_Input_Videos";
 
 class InputVideos extends Component {
     constructor(props) {
@@ -14,12 +16,14 @@ class InputVideos extends Component {
         this.state = {
             allVideos: [],
             loadings: [],
+            isTourOpen: false
 
 
         };
         this.deleteVideoWeb = this.deleteVideoWeb.bind(this)
 
     }
+
 
     componentDidMount() {
         fetch('/api/videos')
@@ -51,50 +55,55 @@ class InputVideos extends Component {
     }
 
     setCollections = (data) => {
-        this.props.setCollections(...this.props.collections, data)
+        this.props.setCollections(data)
+    }
+
+    setIsTourOpen = (value) => {
+        this.setState({
+            isTourOpen: value
+        })
     }
 
     render() {
         return (
             <>
+                <ParticlesBackground/>
+                <TutorialComponent setIsTourOpen={this.setIsTourOpen} isTourOpen={this.state.isTourOpen}
+                                   tutorialSteps={tutorialSteps}/>
+
                 <div className='containerAllVideosPage'>
-                    <ParticlesBackground/>
                     <UploadVideosComponent addVideo={this.addVideo} allVideos={this.state.allVideos}/>
 
                     <div className={"allVideos"}>
-                        {this.state.allVideos.map((video, index) =>
-                            <VideoCard
-                                deleteVideoWeb={this.deleteVideoWeb}
-                                video={video}
-                                key={video.name}
-                                loading={this.state.loadings[index]}
-                                setCollections={this.setCollections}
-
-                            />
-                        )}
+                        {this.state.allVideos.map((video, index) => {
+                            return <div className={index > 0 ? '' : 'step_2_Video'}>
+                                <VideoCard
+                                    deleteVideoWeb={this.deleteVideoWeb}
+                                    video={video}
+                                    key={video.name}
+                                    loading={this.state.loadings[index]}
+                                    setCollections={this.setCollections}
+                                />
+                            </div>
+                        })}
                         {this.state.allVideos.length === 0 &&
                         <div className={'noVideosDiv'}>Upload at last one video.</div>}
                     </div>
-                    {this.state.allVideos.length > 0 &&
-                    <div className={'bottomDivSlidesVideo'}>
-                        {this.state.allVideos.length > 2 &&<div className={'dragPicDiv'}><img alt ='...' src={'images/dragPic.png'}/></div>}
-                        {this.state.allVideos.length} total videos
-                        {this.state.allVideos.length > 2 &&<div className={'dragPicDiv'}><img alt ='...' src={'images/dragPic.png'}/></div>}
-
+                    <div  className={'buttonTutorialDiv'} onClick={() => this.setIsTourOpen(true)}>
+                        Tutorial
                     </div>
-                    }
 
                     <Link to={'/addNewResources'}>
                         <div className={'backArrowDiv'}>
-                            <BsArrowReturnLeft/>
+                            <i className="fas fa-long-arrow-alt-left"/>
                         </div>
                     </Link>
                     <div className={'onVideoDiv'}>
                         <img className={'onVideo'} src={'images/videos2.png'} alt={'...'}/>
                     </div>
                     <Link to={'/foldersInterface'}>
-                        <div className={'goFolderImage'}>
-                            <img className={''} src={'images/image2t.png'} alt={'...'}/>
+                        <div className={'goFolderImage  step_3_Video'}>
+                            <i className="fas fa-images"/>
                         </div>
                     </Link>
                 </div>

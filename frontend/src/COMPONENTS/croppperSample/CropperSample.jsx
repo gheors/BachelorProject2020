@@ -62,6 +62,14 @@ class CroppedSample extends Component {
 
         const cx = (crop.x * scaleX + width / 2) / image.naturalWidth
         const cy = (crop.y * scaleY + height / 2) / image.naturalHeight
+        console.log("image : " + image)
+
+        console.log("image natual width: " + image.naturalWidth, "image natual height: " + image.naturalHeight)
+        console.log("image  width: " + image.width, "image  height: " + image.height)
+        console.log("width: " + width, "height: " + height)
+        console.log("crop width: " + crop.width, "crop height: " + crop.height)
+        console.log("scale x: " + scaleX, "scale y: " + scaleY)
+        console.log(crop.x, crop.y, crop.width, crop.height)
 
         ctx.drawImage(
             image,
@@ -141,7 +149,7 @@ class CroppedSample extends Component {
 
                 })
             }
-        
+
         }
     }
 
@@ -159,7 +167,6 @@ class CroppedSample extends Component {
                         onImageLoaded={this.onImageLoaded}
                         onComplete={this.onCropComplete}
                         onChange={this.onCropChange}
-                        className={"heello"}
                     />
                 )}
                 {this.props.showCards &&
@@ -171,7 +178,7 @@ class CroppedSample extends Component {
                              top: `${card.coordinates[1] * 100}%`,
                              width: `${card.coordinates[2] * 100}%`,
                              height: `${card.coordinates[3] * 100}%`,
-                             border: `1px solid ${Colors[i]}`,
+                             border: `3px solid ${Colors[i]}`,
                              borderRadius: '5px',
                              color: Colors[i],
                              textAlign: 'left'

@@ -1,6 +1,5 @@
 import {IImage, Image} from "../models/modelmages";
-import {db} from '../server';
-import {IFolder,Folder} from "../models/modeCollections";
+import {IFolder, Folder} from "../models/modelFolders";
 
 //get all Images controller
 export async function getFolders(): Promise<IFolder[]> {
@@ -28,16 +27,30 @@ export async function getFolderByName(name: string): Promise<IFolder> {
     })
 }
 
+// get single video controller
+export async function getFolderById(folderId: string): Promise<IFolder> {
+    return new Promise<IFolder>((resolve, reject) => {
+        Folder.findOne({_id: folderId}, (err, folder) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(folder || undefined)
+            }
+        })
+    })
+}
+
+
+
 
 // add new video controller
-export async function addFolder(name: string,tags:[string]) {
+export async function addFolder(name: string, videoName: string,totalImages:number): Promise<IFolder> {
     return new Promise((resolve, reject) => {
-        const folder = new Folder({name, tags})
+        const folder = new Folder({name, videoName,totalImages})
         folder.save().then(resolve).catch(reject)
     })
 }
 
-// add new video controller
 export async function deleteFolder(name: string) {
     return new Promise((resolve, reject) => {
         Folder.deleteMany({name}).then(resolve).catch(reject)

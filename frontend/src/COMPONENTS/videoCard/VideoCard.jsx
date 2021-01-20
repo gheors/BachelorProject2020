@@ -14,7 +14,7 @@ import {HiPencilAlt} from "react-icons/hi";
 function VideoCard(props) {
     const video = props.video;
     const [fragmented, setFragmented] = useState(video.fragmented);
-    const [frameRate, setFrameRate] = useState(1)
+    const [frameRate, setFrameRate] = useState(2)
     const [loading, setLoading] = useState(props.loading)
     const [preDelete, setPreDelete] = useState(false);
     const duration = video.duration;
@@ -27,7 +27,7 @@ function VideoCard(props) {
 
     useEffect(() => {
         return setMounted(false);
-    },[])
+    }, [])
 
 
     const runFragmentation = () => {
@@ -38,7 +38,7 @@ function VideoCard(props) {
                 props.setCollections(res.data)
             })
             .then(() => {
-                if(mounted){
+                if (mounted) {
                     setFragmented(true)
                     setLoading(false)
                     if (preDelete) {
@@ -47,7 +47,7 @@ function VideoCard(props) {
 
                 }
 
-        })
+            })
     }
 
     const deleteVideo = () => {
@@ -64,51 +64,68 @@ function VideoCard(props) {
 
     return (
         <div className='VideoCard'>
+
+            <div className={"headerVideoCard"}>
+                <div className={'titleVideoCard'}>{video.name.split('.')[0]}
+                    <HiPencilAlt onClick={console.log('clicked')}/>
+                </div>
+                <div className={'ads'}>AiTiA <i className="fas adsIcon fa-crop-alt"/></div>
+
+            </div>
+
             <div className={'leftVideoCard'}>
                 <ReactPlayer className='reactPlayer' controls url={`/videos/${video.name}`}/>
             </div>
+
+
             <div className={'rightVideoCard'}>
-                <div className={'ads'}>AiTiA <i className="fas adsIcon fa-crop-alt"/></div>
-                <div className={'titleVideoCard'}>{video.name.split('.')[0]} <HiPencilAlt
-                    onClick={console.log('clicked')}/></div>
+
                 <div className={'sliderWrapper'}>
-                    <div className={'ChooseDiv'}>Frame Rate setter <BiMerge/></div>
+                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                        <div className={'ChooseDiv'}>Frame Rate setter <BiMerge/></div>
+                        <div className="ff_parent">
+                            <div className={'fps'}> fps: <span className={'frameRateColor'}>{frameRate}</span></div>
+                            <div className={'frames'}>totalFrames: <span
+                                className={'frameRateColor'}>{totalImages}</span></div>
+                        </div>
+                    </div>
+
                     <div className={'sliderDiv'}>
                         <Slider value={frameRate}
                                 onChange={(value => setFrameRate(value))} min={1} max={8}
                                 className={"slider_videos"}/>
                     </div>
 
-                    <div className="ff_parent">
-                        <div className={'fps'}> {'fps: ' + frameRate}</div>
-                        <div className={'frames'}>{'frames out: ' + totalImages}</div>
+
+                </div>
+
+                <div style={{display: 'flex', justifyContent: 'space-between', margin: '10px 5px 15px 5px'}}>
+                    <div className='delete'>
+                        delete after extraction
+                        <Checkbox checked={preDelete}
+                                  onChange={deleteAfterFrag}
+                                  className={'checkbox'}
+                        />
                     </div>
-                </div>
 
-                <div className='delete'>
-                    delete after extraction
-                    <Checkbox checked={preDelete}
-                              onChange={deleteAfterFrag}
-                              className={'checkbox'}
-                    />
-                </div>
+                    <div className={'videoCardButtonsDiv'}>
+                        <Button className={'buttonDelete'} buttonStyle="button-outline-secondary"
+                                buttonSize='button-medium'
+                                onClick={deleteVideo}>
+                            Delete Video
+                        </Button>
+                        <Button className={'buttonFragment'}
+                                buttonStyle={!fragmented ? "button-outline" : "button-outline-disabled"}
+                                buttonSize='button-medium'
+                                onClick={fragmented || loading ? null : runFragmentation}>
+                            {<div
+                                className={loading ? 'loadingClassActive' : 'loadingClass'}>{loading ?
+                                <HashLoader css={override} loading={loading}
+                                            size={17} color={"#ccff00"}/> : "extract frames"}</div>}
 
-                <div className={'videoCardButtonsDiv'}>
-                    <Button className={'buttonDelete'} buttonStyle="button-outline-secondary" buttonSize='button-medium'
-                            onClick={deleteVideo}>
-                        Delete Video
-                    </Button>
-                    <Button className={'buttonFragment'}
-                            buttonStyle={!fragmented ? "button-outline" : "button-outline-disabled"}
-                            buttonSize='button-medium'
-                            onClick={fragmented || loading ? null : runFragmentation}>
-                        {<div
-                            className={loading ? 'loadingClassActive' : 'loadingClass'}>{loading ?
-                            <HashLoader css={override} loading={loading}
-                                        size={17} color={"#ccff00"}/> : "extract frames"}</div>}
+                        </Button>
 
-                    </Button>
-
+                    </div>
                 </div>
             </div>
         </div>

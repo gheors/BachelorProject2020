@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import "./UploadMultiplevideos.css";
 import {Button} from "../button/Button";
 import {Link} from 'react-router-dom'
 import Axios from "axios";
 import {MdVideoLibrary} from "react-icons/md";
+import {FaFolderPlus} from "react-icons/fa";
 
 function UploadMultipleVideos(props) {
     const fileObj = [];
@@ -11,6 +12,8 @@ function UploadMultipleVideos(props) {
     const filesArr = []
     const namesArr = []
     const ex = []
+    const input = useRef(null)
+
     const existingNames = props.allVideos.map(video => {
         return video.name
     })
@@ -74,58 +77,54 @@ function UploadMultipleVideos(props) {
     }
 
     return (
-        <div className="upload_form">
-            <div className="upload_body">
-                <form action="#">
+        <>
 
-                    {preview && previewFiles.length > 0 && <div className="upload_header">Preview</div>}
-
-                    {preview && previewFiles.length > 0 && <div className={'innerPreviewWrapper'}>
-                        {(previewFiles || []).map((url,index) => (
-                            <div key={url} className={'innerVideo'}>
-                                <video src={url}/>
-                                <MdVideoLibrary className={'videoIconPrev'}/>
-                            </div>
-                        ))}
-                    </div>}
-                    <div className='inline'>
-                        <input
-                            id={'InputUploadVideos'}
-                            placeholder={'Choose video to Build Collection'}
-                            type="file"
-                            className={
-                                !preview ? 'form-control' : 'form-control-adjust'
-                            }
-                            onChange={previewMultipleFiles}
-                            accept='video/*'
-                            multiple
-                        />
-                        {preview && existing.length > 0 && <div className={'existing_namesDiv'}>
-                            already existing:
-                            {existing.map(name=>{
-                                return <div key={name + '_exist'}>
-                                    {'' +name}
-                                </div>
-                            })}
-                        </div>}
-                        {preview && previewFiles.length > 0 &&  <div className="button_upload">
-                            <Link to='./videosInterface'>
-                                <Button
-                                    className={'clause'}
-                                    buttonStyle="button-outline"
-                                    buttonSize="button-full"
-                                    onClick={uploadVideos}
-                                    type='submit'
-
-                                >
-                                    Upload <i className="fas fa-upload"/>
-                                </Button>
-                            </Link>
-                        </div>}
-                    </div>
-                </form>
+            {preview && previewFiles.length > 0 && <div className={'previewContainer'}>
+                <div className={'innerPreviewWrapper'}>
+                    {(previewFiles || []).map((url, index) => (
+                        <div key={url} className={'innerVideo'}>
+                            <video src={url}/>
+                            <MdVideoLibrary className={'videoIconPrev'}/>
+                        </div>
+                    ))}
+                </div>
+            </div>}
+            <input
+                id={'InputUploadVideos'}
+                style={{display: 'none'}}
+                type="file"
+                onChange={previewMultipleFiles}
+                accept='video/*'
+                multiple
+                ref={input}
+            />
+            <div className={'chooseFileDiv step_1_Video'} onClick={() => input.current?.click()}><img alt={'...'}
+                                                                                         src={'images/videosAdd.png'}/>
             </div>
-        </div>
+
+            {preview && existing.length > 0 && <div className={'existing_namesDiv'}>
+                already existing:
+                {existing.map(name => {
+                    return <div key={name + '_exist'}>
+                        {'' + name}
+                    </div>
+                })}
+            </div>}
+
+            {preview && previewFiles.length > 0 && <div className="button_upload">
+                <Link to='./videosInterface'>
+                    <Button
+                        className={'clause'}
+                        buttonStyle="button-outline"
+                        buttonSize="button-full"
+                        onClick={uploadVideos}
+                        type='submit'
+                    >
+                        <i className="fas fa-upload"/>
+                    </Button>
+                </Link>
+            </div>}
+        </>
     )
 }
 
