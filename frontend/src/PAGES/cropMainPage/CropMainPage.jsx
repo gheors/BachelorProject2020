@@ -11,6 +11,7 @@ import AddSelectCategoryComponent from "../../COMPONENTS/addSelectCategoryCompon
 import RightBarCardsComponent from "../../COMPONENTS/rightBarCardsComponent/RightBarCardsComponent";
 import TutorialComponent from "../../COMPONENTS/tutorialComponent/TutorialComponent";
 import {tutorialSteps} from "./tutorialStepsCropMainPage.jsx";
+import {setCurrentFolder_API} from "../inputVideos/ResourcesServices";
 
 export default function CropMainPage(props) {
     const [currentFolder, setCurrentFolder] = useState("");
@@ -47,17 +48,12 @@ export default function CropMainPage(props) {
         }
     }, [currentImage]);
 
-    const setCurrentFolderZero = (folder) => {
-        Axios.get(`/api/images/folder/${folder._id}`)
-            .then((res) => {
-                props.setCurrentFolder(folder.name);
-                props.setImagesArray(res.data);
-                setImages(res.data);
-                setCurrentFolder(folder.name);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+    const setCurrentFolderZero = async (folder) => {
+        const images = await setCurrentFolder_API(folder._id)
+        props.setCurrentFolder(folder.name);
+        props.setImagesArray(images);
+        setImages(images);
+        setCurrentFolder(folder.name);
     };
 
     const addCategory = (name, tag) => {

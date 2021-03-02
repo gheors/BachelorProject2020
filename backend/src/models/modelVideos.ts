@@ -6,14 +6,12 @@ export interface  IVideo extends  mongoose.Document{
     name: string,
     fragmented: boolean,
     duration: number
-
-
 }
 // mongo
 const VideoSchema = new mongoose.Schema({
     name: String,
     fragmented: Boolean,
-    duration: Number
+    duration: Number,
 })
 
 export const Video = mongoose.model<IVideo>("videos",VideoSchema);

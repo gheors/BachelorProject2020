@@ -1,8 +1,8 @@
 import React from 'react';
 import {TwitterPicker} from 'react-color';
-import './AnimatedBulb.scss'
+import './ColorPickerComponent.scss'
 
-export class AnimatedBulb extends React.Component {
+export class ColorPickerComponent extends React.Component {
     state = {
         background: '#fff',
     };

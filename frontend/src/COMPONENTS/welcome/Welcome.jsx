@@ -1,26 +1,30 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../../App.css";
 import {Button} from "../button/Button";
 import "./Welcome.css";
 import Popup from "../popUpTrailer/PopUpTrailer";
 import {Link} from "react-router-dom";
+
 // import * as Fa from "react-icons/fa";
 
 
 function Welcome() {
 
+    useEffect(() => {
+
+    }, [])
 
     return (
         <div className="mainContainer">
             <div className={"TitleMainContainer"}>
                 <h1>ARTIFICIAL ADVENTURE</h1>
 
-                <p>What are you still waiting for?</p>
+                <p>Designed for you.</p>
 
                 <div className="hero-buttons">
                     <Link to={"/dataset"}>
                         <Button
-                            className=""
+                            className="borderRadius"
                             buttonStyle="button-outline"
                             buttonSize="button-large"
                         >

@@ -9,6 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Axios from "axios";
 import {BiMerge} from "react-icons/bi";
 import {HiPencilAlt} from "react-icons/hi";
+import {callFragmentation, deleteVideo_API, deleteVideos_API} from "../../PAGES/inputVideos/ResourcesServices";
 
 
 function VideoCard(props) {
@@ -30,31 +31,22 @@ function VideoCard(props) {
     }, [])
 
 
-    const runFragmentation = () => {
+    const runFragmentation = async () => {
         setLoading(true)
-        Axios.get(`/api/videos/${video.name}?frameRate=${frameRate}`)
-            .then(res => {
-                console.log(res)
-                props.setCollections(res.data)
-            })
-            .then(() => {
-                if (mounted) {
-                    setFragmented(true)
-                    setLoading(false)
-                    if (preDelete) {
-                        deleteVideo()
-                    }
-
-                }
-
-            })
+        await callFragmentation(video.name, frameRate).then(res => {
+            setMounted(true)
+            props.setCollections(res.data)
+            setFragmented(true)
+            setLoading(false)
+            if (preDelete) {
+                deleteVideo()
+            }
+        })
     }
 
-    const deleteVideo = () => {
+    const deleteVideo = async () => {
+        await deleteVideo_API(video)
         props.deleteVideoWeb(video)
-        Axios.delete(`http://localhost:3000/api/videos/?name=${video.name}`, video)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
     }
 
     const deleteAfterFrag = () => {

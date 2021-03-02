@@ -1,5 +1,12 @@
 import express from 'express'
-import {addVideo, getVideo, getVideos, deleteVideo, updateVideoFragmented} from "../controllers/controllerVideos";
+import {
+    addVideo,
+    getVideo,
+    getVideos,
+    deleteVideo,
+    updateVideoFragmented,
+    postVideos
+} from "../controllers/controllerVideos";
 import {addImage, getImage} from "../controllers/controllerImages";
 import {addFolder, deleteFolder, getFolderByName} from "../controllers/controllerFolders";
 import {deleteFolderChildrenRecursive} from './routeFolders'
@@ -20,31 +27,28 @@ const upload = multer();
 
 // add single video
 router.post('/', upload.array('file', 10), async (req, res) => {
-    const extArray = [".mov", ".mp4", ".flv", ".avi", ".webm", ".wmv", ".mkv", ".avchd"]
     const files = req.files as Express.Multer.File[];
-    const videos = await Promise.all(files.map(async (file, i) => {
-
-        const name = files.length > 1 ? req.body.names[i] : req.body.names;
-        //@ts-ignore
-        if (!extArray.includes(file.detectedFileExtension)) next(new Error("Invalid file type"));
-        // await command in async function wait until the promise pipeline is resolved
-        await pipeline(
-            file.stream,
-            fs.createWriteStream(`${__dirname}/../../storage/videos/${name}`)
-        );
-        const duration = await getVideoDurationInSeconds(`${__dirname}/../../storage/videos/${name}`)
-        let intDuration = Math.ceil(duration)
-        return await addVideo(name, false, intDuration)
-    }));
-    // console.log(videos)
+    const videos = await postVideos(files,req.body.names)
     res.status(200).send(videos)
-
 })
+
+
+
+
+
 
 router.get('/', async (req, res) => {
     const videos = await getVideos()
     res.send(videos)
 })
+
+
+
+
+
+
+
+
 
 router.delete('/', async (req, res) => {
     const name = req.query.name as string

@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component, useCallback, useEffect, useRef, useState} from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
 import './CropperSample.css';
 import {Colors} from "../../Colors";
+
 
 class CroppedSample extends Component {
 
@@ -60,16 +61,10 @@ class CroppedSample extends Component {
         const width = crop.width * scaleX / image.naturalWidth
         const height = crop.height * scaleY / image.naturalHeight
 
-        const cx = (crop.x * scaleX + width / 2) / image.naturalWidth
-        const cy = (crop.y * scaleY + height / 2) / image.naturalHeight
-        console.log("image : " + image)
 
-        console.log("image natual width: " + image.naturalWidth, "image natual height: " + image.naturalHeight)
-        console.log("image  width: " + image.width, "image  height: " + image.height)
-        console.log("width: " + width, "height: " + height)
-        console.log("crop width: " + crop.width, "crop height: " + crop.height)
-        console.log("scale x: " + scaleX, "scale y: " + scaleY)
-        console.log(crop.x, crop.y, crop.width, crop.height)
+        const cx = (crop.x * scaleX / image.naturalWidth) + width / 2
+        const cy = (crop.y * scaleY / image.naturalHeight) + height / 2
+
 
         ctx.drawImage(
             image,
@@ -129,7 +124,6 @@ class CroppedSample extends Component {
                         aspect: 1,
                     },
                     src: this.props.src
-
                 })
             }
         }
@@ -181,7 +175,8 @@ class CroppedSample extends Component {
                              border: `3px solid ${Colors[i]}`,
                              borderRadius: '5px',
                              color: Colors[i],
-                             textAlign: 'left'
+                             textAlign: 'left',
+                             transform: "translate(-50%, -50%)"
                          }}>
                              <div className={'tagInsideDiv'}>{card.tags.map((tag, index) => {
                                  return <div key={tag + index}>{tag}</div>

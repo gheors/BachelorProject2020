@@ -4,7 +4,7 @@ export const tutorialSteps = [
     {
         selector: '.step_1_Video',
         content: <>
-            <div className={'step_1_Video_Content'}>
+            <div key={'step_1_Video'} className={'step_1_Video_Content'}>
                 <div className={'descriptionStep marginAdjustVideo'}>The Add button allows you to upload a video or a
                     list of videos from the memory of your device.
                     <br/>
@@ -23,7 +23,7 @@ export const tutorialSteps = [
     },
     {
         selector: '.step_2_Video',
-        content: <div className={'descriptionStep heightDescription'}>
+        content: <div  key={'step_2_Video'} className={'descriptionStep heightDescription'}>
             <div className={'gifDivText'}>
                 <div className={"textDiv"} style={{maxWidth: '320px'}}>
                     <span style={{textWeight: 'bold'}}>Video Fragmentation </span>
@@ -66,7 +66,7 @@ export const tutorialSteps = [
     },
     {
         selector: '.step_3_Video',
-        content: <div className={'descriptionStep'}>
+        content: <div  key={'step_3_Video'} className={'descriptionStep'}>
             <span style={{textWeight: 'bold'}}>Collection images page</span><br/>
             All your <span style={{textWeight: 'bold'}}>frames</span> from a video will be <span style={{textWeight: 'bold'}}>available</span> there once the fragmentation finishes its task.
             <div className={'goToFolders'}>

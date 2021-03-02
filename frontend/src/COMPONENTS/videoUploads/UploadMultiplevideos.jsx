@@ -1,10 +1,10 @@
-import React, {useRef, useState} from "react";
+import React, {useContext, useRef, useState} from "react";
 import "./UploadMultiplevideos.css";
 import {Button} from "../button/Button";
 import {Link} from 'react-router-dom'
-import Axios from "axios";
 import {MdVideoLibrary} from "react-icons/md";
-import {FaFolderPlus} from "react-icons/fa";
+import {Context} from "../../Context";
+import {postVideos_API} from "../../PAGES/inputVideos/ResourcesServices";
 
 function UploadMultipleVideos(props) {
     const fileObj = [];
@@ -14,7 +14,9 @@ function UploadMultipleVideos(props) {
     const ex = []
     const input = useRef(null)
 
-    const existingNames = props.allVideos.map(video => {
+    const {videos} = useContext(Context)
+
+    const existingNames = videos.map(video => {
         return video.name
     })
     // hooks
@@ -56,23 +58,18 @@ function UploadMultipleVideos(props) {
 
     }
 
-
-    const uploadVideos = () => {
+    const uploadVideos = async () => {
         const data = new FormData();
 
-        files.forEach(file => {
-            if (file !== null)
+        files.forEach((file,index) => {
+            if (file !== null){
                 data.append('file', file)
+                data.append('names', names[index])
+            }
         })
-        names.forEach(name => {
-            if (name !== null)
-                data.append('names', name)
-        })
-        Axios.post("http://localhost:3000/api/videos", data)
-            .then(res => {
-                props.addVideo(res.data)
-            })
-            .catch(err => console.log(err));
+
+        const newVideos = await postVideos_API(data)
+        props.addVideo(newVideos)
         resetPreview()
     }
 
@@ -99,7 +96,7 @@ function UploadMultipleVideos(props) {
                 ref={input}
             />
             <div className={'chooseFileDiv step_1_Video'} onClick={() => input.current?.click()}><img alt={'...'}
-                                                                                         src={'images/videosAdd.png'}/>
+                                                                                                      src={'images/videosAdd.png'}/>
             </div>
 
             {preview && existing.length > 0 && <div className={'existing_namesDiv'}>

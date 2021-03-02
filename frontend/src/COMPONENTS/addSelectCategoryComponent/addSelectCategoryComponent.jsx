@@ -4,7 +4,7 @@ import "../../COMPONENTS/buttonCard/ButtonCardMenu.css";
 
 import {FaPlus} from "react-icons/fa";
 import TagComponent from "../tagComponent/TagComponent";
-import {AnimatedBulb} from "../animatedBulb/AnimatedBulb";
+import {ColorPickerComponent} from "../colorPicker/ColorPickerComponent";
 
 export default function AddSelectCategoryComponent(props) {
     const [category, setCategory] = useState("");
@@ -80,7 +80,7 @@ export default function AddSelectCategoryComponent(props) {
                                 />
                             </div>
                         </div>
-                        <AnimatedBulb/>
+                        <ColorPickerComponent/>
 
                         <button onClick={() => saveNewCategory()} className={"addTagButton"}>
                             <FaPlus/>

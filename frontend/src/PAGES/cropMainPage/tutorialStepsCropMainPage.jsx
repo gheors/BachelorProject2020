@@ -223,7 +223,7 @@ export const tutorialSteps = [
             <div className={'descriptionStep'}>
                 Now you can <span style={{textWeight: 'bold'}}>visualize</span> the full image with the its <span
                 style={{textWeight: 'bold'}}>cards</span> and
-                <span style={{textWeight: 'bold'}}>tags</span>.
+                <span style={{textWeight: 'bold'}}> tags</span>.
 
                 <div className={'changeCollectionTDiv'}>
                     <div>
