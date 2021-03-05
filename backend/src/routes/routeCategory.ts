@@ -51,7 +51,7 @@ router.post('/addCategory/:name/:tag', async (req, res) => {
     try {
         fs.mkdirSync(current);
     } catch (error) {
-        console.log("Already exist")
+        console.log("exist")
     }
 
     let namesClasses = path.join(__dirname, `../../DATASETS/${singleDataSet}/`, 'classes.names');
